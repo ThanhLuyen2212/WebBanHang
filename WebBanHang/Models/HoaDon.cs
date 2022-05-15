@@ -26,10 +26,12 @@ namespace WebBanHang.Models
         public Nullable<int> TongTien { get; set; }
         public Nullable<int> IDKH { get; set; }
         public Nullable<int> IDPT { get; set; }
+        public Nullable<int> IDTrangThai { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietHoaDon> ChiTietHoaDons { get; set; }
         public virtual KhachHang KhachHang { get; set; }
         public virtual PhuongThucThanhToan PhuongThucThanhToan { get; set; }
+        public virtual TrangThai TrangThai { get; set; }
     }
 }

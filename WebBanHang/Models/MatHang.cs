@@ -25,9 +25,12 @@ namespace WebBanHang.Models
         public Nullable<int> IDLoaiMH { get; set; }
         public string MoTa { get; set; }
         public Nullable<int> DonGia { get; set; }
+        public Nullable<System.DateTime> NgayNhapHang { get; set; }
         public string HinhAnh1 { get; set; }
         public string HinhAnh2 { get; set; }
         public string HinhAnh3 { get; set; }
+        public string HinhAnh4 { get; set; }
+        public string MoTaChiTiet { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietHoaDon> ChiTietHoaDons { get; set; }

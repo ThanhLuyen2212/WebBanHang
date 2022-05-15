@@ -1,0 +1,27 @@
+﻿@model WebBanHang.Models.TrangThai
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TrangThai</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenTrangThai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenTrangThai)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IDTrangThai }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

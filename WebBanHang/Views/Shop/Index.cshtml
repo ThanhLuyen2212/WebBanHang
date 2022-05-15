@@ -1,0 +1,104 @@
+﻿@using WebBanHang.Models
+@model IEnumerable<WebBanHang.Models.MatHang>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<MatHang> hangtheotheloai = ViewBag.MatHangTheoTheLoai;
+}
+
+
+<!-- Tìm kiếm theo tên sản phẩm -->
+<form class="nav-link search" style="width:700px; float:right; margin-right:150px">
+    <input type="text" class="form-control" placeholder="Tìm kiếm theo tên sản phẩm" name="TenMatHang">
+</form>
+<!-- Tìm kiếm theo tên sản phẩm -->
+<!-- Shop Section Begin -->
+<section class="shop spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-3">
+                <div class="shop__sidebar">
+                    <div class="sidebar__categories">
+                        <div class="section-title">
+                            <h4>Categories</h4>
+                        </div>
+
+
+                        <div class="categories__accordion">
+                            <div class="accordion" id="accordionExample">
+
+
+                                <div class="card">
+                                    <div class="card-heading">
+                                        <ul style="list-style:none">
+                                            @foreach (LoaiMatHang item in @ViewBag.Category)
+                                            {
+                                                <li>
+                                                    <a href="~/Shop/index/?idLoaiMH=@item.IDLoaiMH">@item.TenLoaiMH</a>
+                                                </li>
+                                            }
+                                        </ul>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sidebar__filter">
+                        <div class="section-title">
+                            <h4>Shop by price</h4>
+                        </div>
+                        <div class="filter-range-wrap">
+                            <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
+                                 data-min="33" data-max="99"></div>
+                            <div class="range-slider">
+                                <div class="price-input">
+                                    <p>Price:</p>
+                                    <input type="text" id="minamount">
+                                    <input type="text" id="maxamount">
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">Filter</a>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-9">
+                <div class="row">
+                    @foreach (var item in hangtheotheloai)
+                    {
+                        <div class="col-lg-4 col-md-6">
+                            <div class="product__item">
+                                <a href="~/ChiTietSanPham/index/@item.IDMH">
+                                    <div class="product__item__pic set-bg" style="background-image:url('@Url.Content("~/Assets/img/shop/shop-1.jpg")')">
+
+                                    </div>
+                                    <div class="product__item__text">
+                                        <h6>@item.TenMH</h6>
+                                        <div class="product__price">@item.DonGia</div>
+                                    </div>
+                                </a>
+
+                                
+                            </div>
+                        </div>
+                    }
+
+
+
+                    
+                    <div class="col-lg-12 text-center">
+                        <div class="pagination__option">
+                            <a href="#">1</a>
+                            <a href="#">2</a>
+                            <a href="#">3</a>
+                            <a href="#"><i class="fa fa-angle-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Shop Section End -->

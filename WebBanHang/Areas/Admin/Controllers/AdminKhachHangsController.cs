@@ -46,7 +46,7 @@ namespace WebBanHang.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IDKH,TenKH,SDT,DiaChi,NgaySinh,UserName,Password")] KhachHang khachHang)
+        public ActionResult Create([Bind(Include = "IDKH,TenKH,SDT,DiaChi,NgaySinh,UserName,Password,Email")] KhachHang khachHang)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace WebBanHang.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IDKH,TenKH,SDT,DiaChi,NgaySinh,UserName,Password")] KhachHang khachHang)
+        public ActionResult Edit([Bind(Include = "IDKH,TenKH,SDT,DiaChi,NgaySinh,UserName,Password,Email")] KhachHang khachHang)
         {
             if (ModelState.IsValid)
             {

@@ -48,7 +48,7 @@ namespace WebBanHang.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IDMH,TenMH,IDLoaiMH,MoTa,DonGia,HinhAnh1,HinhAnh2,HinhAnh3")] MatHang matHang)
+        public ActionResult Create([Bind(Include = "IDMH,TenMH,IDLoaiMH,MoTa,DonGia,NgayNhapHang,HinhAnh1,HinhAnh2,HinhAnh3,HinhAnh4,MoTaChiTiet")] MatHang matHang)
         {
             if (ModelState.IsValid)
             {
@@ -82,7 +82,7 @@ namespace WebBanHang.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IDMH,TenMH,IDLoaiMH,MoTa,DonGia,HinhAnh1,HinhAnh2,HinhAnh3")] MatHang matHang)
+        public ActionResult Edit([Bind(Include = "IDMH,TenMH,IDLoaiMH,MoTa,DonGia,NgayNhapHang,HinhAnh1,HinhAnh2,HinhAnh3,HinhAnh4,MoTaChiTiet")] MatHang matHang)
         {
             if (ModelState.IsValid)
             {

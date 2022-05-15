@@ -1,0 +1,87 @@
+﻿@model WebBanHang.Models.GioHang
+@{
+    ViewBag.Title = "Show";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 style="text-align:center; color:royalblue">Giỏ hàng</h1>
+
+
+@if (Model != null)
+{
+    <!-- Shop Cart Section Begin -->
+    <section class="shop-cart spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="shop__cart__table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Tên mặt hàng</th>
+                                    <th>Giá</th>
+                                    <th>Số lượng</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @foreach (var item in Model.ListHang)
+                                {
+                                    double sum = item._soLuongHang * 1;
+                                    <tr>
+                                        <td class="cart__product__item">
+                                            <img src="img/shop-cart/cp-1.jpg" alt="">
+                                            <img src="~/Images/rừng na uy.png" style="width:150px" />
+                                            <div class="cart__product__item__title">
+                                                <h6>@Html.DisplayFor(Model => item.gioHang.TenMH)</h6>
+                                            </div>
+                                        </td>
+                                        <td class="cart__price">@Html.DisplayFor(Model => item.gioHang.DonGia)  <span>VND</span></td>
+
+                                        @using (Html.BeginForm("Update_quantity", "GioHang"))
+                                        {
+                                            <input type="hidden" value="@item.gioHang.IDMH" name="Id MatHang" />
+                                            <td class="cart__quantity">
+                                                <div class="pro-qty">
+                                                    <input type="text" value="@item._soLuongHang" name="quantity">
+                                                </div>
+                                            </td>
+                                            <td><input type="submit" name="update" value="update" class="site-btn" /></td>
+                                        }
+                                        <td class="cart__close"><a href="~/GioHang/Remove/@item.gioHang.IDMH"> <span class="icon_close" style="margin-left:70px"></a></td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                        <div class="row">
+                            <div class="col-lg-12 ">
+                                <div class="cart__btn">
+                                    <h5 style="float:right;margin-right:300px"> Tổng Cộng: @Model.sum()</h5>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-lg-12 ">
+                                <div class="cart__btn">
+                                    <a class="site-btn" href="@Url.Action("Index","Shop")">Tiếp tục mua hàng</a>
+                                    @using (Html.BeginForm("MuaHang", "GioHang", FormMethod.Post, new { enctype = "multipart/formdata" }))
+                                    {
+                                        <input class="btn site-btn" type="submit" name="Mua" value="Mua Hàng" style="float:right" />
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Shop Cart Section End -->
+}
+
+
+
+

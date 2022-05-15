@@ -27,6 +27,9 @@
         <th>
             @Html.DisplayNameFor(model => model.PhuongThucThanhToan.TenPT)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TrangThai.TenTrangThai)
+        </th>
         <th></th>
     </tr>
 
@@ -46,6 +49,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.PhuongThucThanhToan.TenPT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TrangThai.TenTrangThai)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.IDHD }) |

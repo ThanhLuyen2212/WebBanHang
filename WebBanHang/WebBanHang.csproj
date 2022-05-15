@@ -135,10 +135,19 @@
     <Compile Include="Areas\Admin\Controllers\AdminHomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminKhachHangsController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminLoaiMatHangsController.cs" />
-    <Compile Include="Areas\Admin\Controllers\AdminMatHangsController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminLoginController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminMatHangsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminPhuongThucThanhToansController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminRegisterController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminsManagerController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminTrangThaisController.cs" />
+    <Compile Include="Controllers\ChiTietSanPhamController.cs" />
+    <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\ShopController.cs" />
+    <Compile Include="Controllers\ThongBaoController.cs" />
+    <Compile Include="Controllers\XacNhanDonHangController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -148,6 +157,7 @@
     <Compile Include="Models\ChiTietHoaDon.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\GioHang.cs" />
     <Compile Include="Models\HoaDon.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -178,7 +188,7 @@
     <Compile Include="Models\PhuongThucThanhToan.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\sysdiagram.cs">
+    <Compile Include="Models\TrangThai.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -951,6 +961,107 @@
     <Content Include="Areas\Admin\Assets\vendors\select2\select2.min.css" />
     <Content Include="Areas\Admin\Assets\vendors\select2\select2.min.js" />
     <Content Include="Areas\Admin\Assets\vendors\typeahead.js\typeahead.bundle.min.js" />
+    <Content Include="Assets\css\bootstrap.min.css" />
+    <Content Include="Assets\css\elegant-icons.css" />
+    <Content Include="Assets\css\font-awesome.min.css" />
+    <Content Include="Assets\css\jquery-ui.min.css" />
+    <Content Include="Assets\css\magnific-popup.css" />
+    <Content Include="Assets\css\owl.carousel.min.css" />
+    <Content Include="Assets\css\slicknav.min.css" />
+    <Content Include="Assets\css\style.css" />
+    <Content Include="Assets\fonts\ElegantIcons.svg" />
+    <Content Include="Assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="Assets\img\banner\banner-1.jpg" />
+    <Content Include="Assets\img\banner\banner-2.jpg" />
+    <Content Include="Assets\img\banner\banner-2.png" />
+    <Content Include="Assets\img\banner\banner-3.jpg" />
+    <Content Include="Assets\img\blog\blog-1.jpg" />
+    <Content Include="Assets\img\blog\blog-10.jpg" />
+    <Content Include="Assets\img\blog\blog-2.jpg" />
+    <Content Include="Assets\img\blog\blog-3.jpg" />
+    <Content Include="Assets\img\blog\blog-4.jpg" />
+    <Content Include="Assets\img\blog\blog-5.jpg" />
+    <Content Include="Assets\img\blog\blog-6.jpg" />
+    <Content Include="Assets\img\blog\blog-7.jpg" />
+    <Content Include="Assets\img\blog\blog-8.jpg" />
+    <Content Include="Assets\img\blog\blog-9.jpg" />
+    <Content Include="Assets\img\blog\details\blog-details.jpg" />
+    <Content Include="Assets\img\blog\details\comment-1.jpg" />
+    <Content Include="Assets\img\blog\details\comment-2.jpg" />
+    <Content Include="Assets\img\blog\details\comment-3.jpg" />
+    <Content Include="Assets\img\blog\sidebar\fp-1.jpg" />
+    <Content Include="Assets\img\blog\sidebar\fp-2.jpg" />
+    <Content Include="Assets\img\blog\sidebar\fp-3.jpg" />
+    <Content Include="Assets\img\categories\category-1.jpg" />
+    <Content Include="Assets\img\categories\category-2.jpg" />
+    <Content Include="Assets\img\categories\category-3.jpg" />
+    <Content Include="Assets\img\categories\category-4.jpg" />
+    <Content Include="Assets\img\categories\category-5.jpg" />
+    <Content Include="Assets\img\discount.jpg" />
+    <Content Include="Assets\img\instagram\insta-1.jpg" />
+    <Content Include="Assets\img\instagram\insta-2.jpg" />
+    <Content Include="Assets\img\instagram\insta-3.jpg" />
+    <Content Include="Assets\img\instagram\insta-4.jpg" />
+    <Content Include="Assets\img\instagram\insta-5.jpg" />
+    <Content Include="Assets\img\instagram\insta-6.jpg" />
+    <Content Include="Assets\img\logo.png" />
+    <Content Include="Assets\img\payment\payment-1.png" />
+    <Content Include="Assets\img\payment\payment-2.png" />
+    <Content Include="Assets\img\payment\payment-3.png" />
+    <Content Include="Assets\img\payment\payment-4.png" />
+    <Content Include="Assets\img\payment\payment-5.png" />
+    <Content Include="Assets\img\product\details\product-1.jpg" />
+    <Content Include="Assets\img\product\details\product-2.jpg" />
+    <Content Include="Assets\img\product\details\product-3.jpg" />
+    <Content Include="Assets\img\product\details\product-4.jpg" />
+    <Content Include="Assets\img\product\details\thumb-1.jpg" />
+    <Content Include="Assets\img\product\details\thumb-2.jpg" />
+    <Content Include="Assets\img\product\details\thumb-3.jpg" />
+    <Content Include="Assets\img\product\details\thumb-4.jpg" />
+    <Content Include="Assets\img\product\product-1.jpg" />
+    <Content Include="Assets\img\product\product-2.jpg" />
+    <Content Include="Assets\img\product\product-3.jpg" />
+    <Content Include="Assets\img\product\product-4.jpg" />
+    <Content Include="Assets\img\product\product-5.jpg" />
+    <Content Include="Assets\img\product\product-6.jpg" />
+    <Content Include="Assets\img\product\product-7.jpg" />
+    <Content Include="Assets\img\product\product-8.jpg" />
+    <Content Include="Assets\img\product\related\rp-1.jpg" />
+    <Content Include="Assets\img\product\related\rp-2.jpg" />
+    <Content Include="Assets\img\product\related\rp-3.jpg" />
+    <Content Include="Assets\img\product\related\rp-4.jpg" />
+    <Content Include="Assets\img\shop-cart\cp-1.jpg" />
+    <Content Include="Assets\img\shop-cart\cp-2.jpg" />
+    <Content Include="Assets\img\shop-cart\cp-3.jpg" />
+    <Content Include="Assets\img\shop-cart\cp-4.jpg" />
+    <Content Include="Assets\img\shop\shop-1.jpg" />
+    <Content Include="Assets\img\shop\shop-2.jpg" />
+    <Content Include="Assets\img\shop\shop-3.jpg" />
+    <Content Include="Assets\img\shop\shop-4.jpg" />
+    <Content Include="Assets\img\shop\shop-5.jpg" />
+    <Content Include="Assets\img\shop\shop-6.jpg" />
+    <Content Include="Assets\img\shop\shop-7.jpg" />
+    <Content Include="Assets\img\shop\shop-8.jpg" />
+    <Content Include="Assets\img\shop\shop-9.jpg" />
+    <Content Include="Assets\img\trend\bs-1.jpg" />
+    <Content Include="Assets\img\trend\bs-2.jpg" />
+    <Content Include="Assets\img\trend\bs-3.jpg" />
+    <Content Include="Assets\img\trend\f-1.jpg" />
+    <Content Include="Assets\img\trend\f-2.jpg" />
+    <Content Include="Assets\img\trend\f-3.jpg" />
+    <Content Include="Assets\img\trend\ht-1.jpg" />
+    <Content Include="Assets\img\trend\ht-2.jpg" />
+    <Content Include="Assets\img\trend\ht-3.jpg" />
+    <Content Include="Assets\js\bootstrap.min.js" />
+    <Content Include="Assets\js\jquery-3.3.1.min.js" />
+    <Content Include="Assets\js\jquery-ui.min.js" />
+    <Content Include="Assets\js\jquery.countdown.min.js" />
+    <Content Include="Assets\js\jquery.magnific-popup.min.js" />
+    <Content Include="Assets\js\jquery.nicescroll.min.js" />
+    <Content Include="Assets\js\jquery.slicknav.js" />
+    <Content Include="Assets\js\main.js" />
+    <Content Include="Assets\js\mixitup.min.js" />
+    <Content Include="Assets\js\owl.carousel.min.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -962,6 +1073,12 @@
     <Content Include="Images\123.png" />
     <Content Include="Images\admin.jpg" />
     <Content Include="Images\bookshelf.png" />
+    <Content Include="Images\category-1.jpg" />
+    <Content Include="Images\category-2.jpg" />
+    <Content Include="Images\category-3.jpg" />
+    <Content Include="Images\category-4.jpg" />
+    <Content Include="Images\category-5.jpg" />
+    <Content Include="Images\desktop-computer.png" />
     <Content Include="Images\gio.png" />
     <Content Include="Images\hieu_sach_nho_o_paris-01.jpg" />
     <Content Include="Images\image_195509_1_15686.jpg" />
@@ -991,13 +1108,6 @@
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_AdminLayout.cshtml" />
-    <EntityDeploy Include="Models\Model1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Content>
     <Content Include="Areas\Admin\Assets\css\maps\style.css.map" />
     <Content Include="Areas\Admin\Assets\fonts\Assistant\Assistant-Bold.eot" />
     <Content Include="Areas\Admin\Assets\fonts\Assistant\Assistant-Bold.ttf" />
@@ -1131,6 +1241,60 @@
     <Content Include="Areas\Admin\Views\Shared\_AdminHeader.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_AdminNavLeft.cshtml" />
     <Content Include="Areas\Admin\Views\AdminHome\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminRegister\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminRegister\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminRegister\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminRegister\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminRegister\Index.cshtml" />
+    <Content Include="Assets\fonts\ElegantIcons.eot" />
+    <Content Include="Assets\fonts\ElegantIcons.ttf" />
+    <Content Include="Assets\fonts\ElegantIcons.woff" />
+    <Content Include="Assets\fonts\fontawesome-webfont.eot" />
+    <Content Include="Assets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Assets\fonts\fontawesome-webfont.woff" />
+    <Content Include="Assets\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Assets\fonts\FontAwesome.otf" />
+    <Content Include="Assets\sass\style.scss" />
+    <Content Include="Assets\sass\_base.scss" />
+    <Content Include="Assets\sass\_blog-details.scss" />
+    <Content Include="Assets\sass\_blog-sidebar.scss" />
+    <Content Include="Assets\sass\_blog.scss" />
+    <Content Include="Assets\sass\_breadcrumb.scss" />
+    <Content Include="Assets\sass\_categories.scss" />
+    <Content Include="Assets\sass\_checkout.scss" />
+    <Content Include="Assets\sass\_contact.scss" />
+    <Content Include="Assets\sass\_footer.scss" />
+    <Content Include="Assets\sass\_header.scss" />
+    <Content Include="Assets\sass\_home-page.scss" />
+    <Content Include="Assets\sass\_mixins.scss" />
+    <Content Include="Assets\sass\_product-details.scss" />
+    <Content Include="Assets\sass\_product.scss" />
+    <Content Include="Assets\sass\_responsive.scss" />
+    <Content Include="Assets\sass\_shop-cart.scss" />
+    <Content Include="Assets\sass\_shop.scss" />
+    <Content Include="Assets\sass\_variable.scss" />
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <Content Include="Areas\Admin\Views\AdminsManager\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminsManager\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminsManager\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminsManager\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminsManager\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminChiTietHoaDons\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminChiTietHoaDons\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminChiTietHoaDons\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminChiTietHoaDons\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminChiTietHoaDons\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminHoaDons\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminHoaDons\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminHoaDons\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminHoaDons\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminHoaDons\Index.cshtml" />
     <Content Include="Areas\Admin\Views\AdminLoaiMatHangs\Create.cshtml" />
     <Content Include="Areas\Admin\Views\AdminLoaiMatHangs\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\AdminLoaiMatHangs\Details.cshtml" />
@@ -1141,26 +1305,21 @@
     <Content Include="Areas\Admin\Views\AdminMatHangs\Details.cshtml" />
     <Content Include="Areas\Admin\Views\AdminMatHangs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\AdminMatHangs\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminPhuongThucThanhToans\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminPhuongThucThanhToans\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminPhuongThucThanhToans\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminPhuongThucThanhToans\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminPhuongThucThanhToans\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminTrangThais\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminTrangThais\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminTrangThais\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminTrangThais\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminTrangThais\Index.cshtml" />
     <Content Include="Areas\Admin\Views\AdminKhachHangs\Create.cshtml" />
     <Content Include="Areas\Admin\Views\AdminKhachHangs\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\AdminKhachHangs\Details.cshtml" />
     <Content Include="Areas\Admin\Views\AdminKhachHangs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\AdminKhachHangs\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\AdminHoaDons\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\AdminHoaDons\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\AdminHoaDons\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\AdminHoaDons\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\AdminHoaDons\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\AdminChiTietHoaDons\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\AdminChiTietHoaDons\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\AdminChiTietHoaDons\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\AdminChiTietHoaDons\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\AdminChiTietHoaDons\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\AdminRegister\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\AdminRegister\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\AdminRegister\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\AdminRegister\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\AdminRegister\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -1186,11 +1345,21 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\PhuongThucThanhToan\Index.cshtml" />
+    <Content Include="Views\Shared\_NavLeft.cshtml" />
+    <Content Include="Views\Shared\_Header.cshtml" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\GioHang\Show.cshtml" />
+    <Content Include="Views\Shop\Index.cshtml" />
+    <Content Include="Views\ChiTietSanPham\Index.cshtml" />
+    <Content Include="Views\XacNhanDonHang\XacNhan.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\Login\" />
+    <Folder Include="Views\ThongBao\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

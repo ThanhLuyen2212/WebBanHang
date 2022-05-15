@@ -17,7 +17,7 @@ namespace WebBanHang.Areas.Admin.Controllers
         // GET: Admin/AdminHoaDons
         public ActionResult Index()
         {
-            var hoaDons = db.HoaDons.Include(h => h.KhachHang).Include(h => h.PhuongThucThanhToan);
+            var hoaDons = db.HoaDons.Include(h => h.KhachHang).Include(h => h.PhuongThucThanhToan).Include(h => h.TrangThai);
             return View(hoaDons.ToList());
         }
 
@@ -41,6 +41,7 @@ namespace WebBanHang.Areas.Admin.Controllers
         {
             ViewBag.IDKH = new SelectList(db.KhachHangs, "IDKH", "TenKH");
             ViewBag.IDPT = new SelectList(db.PhuongThucThanhToans, "IDPT", "TenPT");
+            ViewBag.IDTrangThai = new SelectList(db.TrangThais, "IDTrangThai", "TenTrangThai");
             return View();
         }
 
@@ -49,7 +50,7 @@ namespace WebBanHang.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IDHD,NgayMua,TongSoluong,TongTien,IDKH,IDPT")] HoaDon hoaDon)
+        public ActionResult Create([Bind(Include = "IDHD,NgayMua,TongSoluong,TongTien,IDKH,IDPT,IDTrangThai")] HoaDon hoaDon)
         {
             if (ModelState.IsValid)
             {
@@ -60,6 +61,7 @@ namespace WebBanHang.Areas.Admin.Controllers
 
             ViewBag.IDKH = new SelectList(db.KhachHangs, "IDKH", "TenKH", hoaDon.IDKH);
             ViewBag.IDPT = new SelectList(db.PhuongThucThanhToans, "IDPT", "TenPT", hoaDon.IDPT);
+            ViewBag.IDTrangThai = new SelectList(db.TrangThais, "IDTrangThai", "TenTrangThai", hoaDon.IDTrangThai);
             return View(hoaDon);
         }
 
@@ -77,6 +79,7 @@ namespace WebBanHang.Areas.Admin.Controllers
             }
             ViewBag.IDKH = new SelectList(db.KhachHangs, "IDKH", "TenKH", hoaDon.IDKH);
             ViewBag.IDPT = new SelectList(db.PhuongThucThanhToans, "IDPT", "TenPT", hoaDon.IDPT);
+            ViewBag.IDTrangThai = new SelectList(db.TrangThais, "IDTrangThai", "TenTrangThai", hoaDon.IDTrangThai);
             return View(hoaDon);
         }
 
@@ -85,7 +88,7 @@ namespace WebBanHang.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IDHD,NgayMua,TongSoluong,TongTien,IDKH,IDPT")] HoaDon hoaDon)
+        public ActionResult Edit([Bind(Include = "IDHD,NgayMua,TongSoluong,TongTien,IDKH,IDPT,IDTrangThai")] HoaDon hoaDon)
         {
             if (ModelState.IsValid)
             {
@@ -95,6 +98,7 @@ namespace WebBanHang.Areas.Admin.Controllers
             }
             ViewBag.IDKH = new SelectList(db.KhachHangs, "IDKH", "TenKH", hoaDon.IDKH);
             ViewBag.IDPT = new SelectList(db.PhuongThucThanhToans, "IDPT", "TenPT", hoaDon.IDPT);
+            ViewBag.IDTrangThai = new SelectList(db.TrangThais, "IDTrangThai", "TenTrangThai", hoaDon.IDTrangThai);
             return View(hoaDon);
         }
 
