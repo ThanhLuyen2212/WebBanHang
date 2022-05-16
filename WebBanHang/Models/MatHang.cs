@@ -11,13 +11,20 @@ namespace WebBanHang.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Web;
+
     public partial class MatHang
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public MatHang()
         {
             this.ChiTietHoaDons = new HashSet<ChiTietHoaDon>();
+            HinhAnh1 = "~/Images/sach.jpg";
+            HinhAnh2 = "~/Images/sach.jpg";
+            HinhAnh3 = "~/Images/sach.jpg";
+            HinhAnh4 = "~/Images/sach.jpg";
+
         }
     
         public int IDMH { get; set; }
@@ -31,9 +38,14 @@ namespace WebBanHang.Models
         public string HinhAnh3 { get; set; }
         public string HinhAnh4 { get; set; }
         public string MoTaChiTiet { get; set; }
+        public Nullable<int> SoLuong { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietHoaDon> ChiTietHoaDons { get; set; }
         public virtual LoaiMatHang LoaiMatHang { get; set; }
+
+
+        [NotMapped]
+        public HttpPostedFileBase UploadImage { get; set; }
     }
 }

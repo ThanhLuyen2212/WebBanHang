@@ -13,10 +13,15 @@ namespace WebBanHang.Controllers
         WebBanHangEntities data = new WebBanHangEntities();
         // GET: Shop
 
-        public ActionResult Index(string idLoaiMH , string TenMatHang)
+        public ActionResult Index(string idLoaiMH ,string TenTheLoai, string TenMatHang)
         {
             ViewBag.Category = data.LoaiMatHangs.ToList();
-            
+
+            if (TenTheLoai != null)
+            {                            
+                ViewBag.MatHangTheoTheLoai = data.MatHangs.Where(c => c.LoaiMatHang.TenLoaiMH == TenTheLoai).ToList();
+            }
+            else
             if (idLoaiMH != null)
             {
                 int a = int.Parse(idLoaiMH.ToString());

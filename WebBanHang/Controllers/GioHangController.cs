@@ -44,6 +44,10 @@ namespace WebBanHang.Controllers
                 if (gio != null)
                 {
                     GetHang().Add(gio);
+
+                    // Số lượng hàng trong giở là bao nhiêu
+                    GioHang gioHang = Session["GioHang"] as GioHang;                    
+                    Session["SoLuongHangTrongGioHang"] = gioHang.sum().ToString();
                 }
                 return RedirectToAction("Show", "GioHang");
             }
@@ -75,6 +79,8 @@ namespace WebBanHang.Controllers
             int quatity = int.Parse(form["quantity"]);
 
             gio.Update_quantity(id_MatHang, quatity);
+    
+            Session["SoLuongHangTrongGioHang"] = gio.sum().ToString();
 
             return RedirectToAction("Show", "GioHang");
 
@@ -84,6 +90,8 @@ namespace WebBanHang.Controllers
         {
             GioHang gio = Session["GioHang"] as GioHang;
             gio.Remove(id);
+            
+            Session["SoLuongHangTrongGioHang"] = gio.sum().ToString();
             return RedirectToAction("Show", "GioHang"); 
         }
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -48,10 +49,19 @@ namespace WebBanHang.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IDMH,TenMH,IDLoaiMH,MoTa,DonGia,NgayNhapHang,HinhAnh1,HinhAnh2,HinhAnh3,HinhAnh4,MoTaChiTiet")] MatHang matHang)
+        public ActionResult Create( MatHang matHang)
         {
             if (ModelState.IsValid)
             {
+                if (matHang.UploadImage != null)
+                {
+                    string filename = Path.GetFileNameWithoutExtension(matHang.UploadImage.FileName);
+                    string ex = Path.GetExtension(matHang.UploadImage.FileName);
+                    filename = filename + ex;
+                    matHang.HinhAnh1 = "~/Images/" + filename;
+                    matHang.UploadImage.SaveAs(Path.Combine(Server.MapPath("~/Images/"), filename));
+                }
+
                 db.MatHangs.Add(matHang);
                 db.SaveChanges();
                 return RedirectToAction("Index");

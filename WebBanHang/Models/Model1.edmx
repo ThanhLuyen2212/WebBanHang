@@ -68,6 +68,7 @@
           <Property Name="MoTa" Type="nvarchar(max)" />
           <Property Name="DonGia" Type="int" />
           <Property Name="NgayNhapHang" Type="datetime" />
+          <Property Name="SoLuong" Type="int" />
           <Property Name="HinhAnh1" Type="nvarchar(max)" />
           <Property Name="HinhAnh2" Type="nvarchar(max)" />
           <Property Name="HinhAnh3" Type="nvarchar(max)" />
@@ -278,6 +279,7 @@
           <Property Name="MoTaChiTiet" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="ChiTietHoaDons" Relationship="Self.FK_CHITIETHOADON_MATHANG" FromRole="MatHang" ToRole="ChiTietHoaDon" />
           <NavigationProperty Name="LoaiMatHang" Relationship="Self.FK_MATHANG_LOAIMATHANG" FromRole="MatHang" ToRole="LoaiMatHang" />
+          <Property Name="SoLuong" Type="Int32" />
         </EntityType>
         <EntityType Name="PhuongThucThanhToan">
           <Key>
@@ -470,6 +472,7 @@
           <EntitySetMapping Name="MatHangs">
             <EntityTypeMapping TypeName="WebBanHangModel.MatHang">
               <MappingFragment StoreEntitySet="MatHang">
+                <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
                 <ScalarProperty Name="IDMH" ColumnName="IDMH" />
                 <ScalarProperty Name="TenMH" ColumnName="TenMH" />
                 <ScalarProperty Name="IDLoaiMH" ColumnName="IDLoaiMH" />
