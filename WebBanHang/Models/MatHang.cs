@@ -19,12 +19,7 @@ namespace WebBanHang.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public MatHang()
         {
-            this.ChiTietHoaDons = new HashSet<ChiTietHoaDon>();
-            HinhAnh1 = "~/Images/sach.jpg";
-            HinhAnh2 = "~/Images/sach.jpg";
-            HinhAnh3 = "~/Images/sach.jpg";
-            HinhAnh4 = "~/Images/sach.jpg";
-
+            this.ChiTietHoaDons = new HashSet<ChiTietHoaDon>();                
         }
     
         public int IDMH { get; set; }
@@ -46,6 +41,13 @@ namespace WebBanHang.Models
 
 
         [NotMapped]
-        public HttpPostedFileBase UploadImage { get; set; }
+        public HttpPostedFileBase UploadImage1 { get; set; }
+        [NotMapped]
+        public HttpPostedFileBase UploadImage2 { get; set; }
+        [NotMapped]
+        public HttpPostedFileBase UploadImage3 { get; set; }
+        [NotMapped]
+        public HttpPostedFileBase UploadImage4 { get; set; }
+
     }
 }

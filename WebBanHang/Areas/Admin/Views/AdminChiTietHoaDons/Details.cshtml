@@ -5,39 +5,43 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Details</h2>
 
-<div>
-    <h4>ChiTietHoaDon</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.SoluongMH)
-        </dt>
+<div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Chi tiết hóa đơn</h4>
 
-        <dd>
-            @Html.DisplayFor(model => model.SoluongMH)
-        </dd>
+            <form class="forms-sample">
+                <div class="form-group row">
+                    <label for="exampleInputUsername2" class="col-sm-3 col-form-label">ID hóa đơn</label>
+                    <div class="col-sm-9">
+                        @Html.DisplayFor(model => model.IDHD)
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Tên mặt hàng</label>
+                    <div class="col-sm-9">
+                        @Html.DisplayFor(model => model.MatHang.TenMH)
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Số lượng mặt hàng</label>
+                    <div class="col-sm-9">
+                        @Html.DisplayFor(model => model.SoluongMH)
+                    </div>
+                </div>
+                
 
-        <dt>
-            @Html.DisplayNameFor(model => model.HoaDon.IDHD)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.HoaDon.IDHD)
-        </dd>
+                <a href="~/Admin/AdminChiTietHoaDons/Edit/@Model.IDMH">
+                    <button style="width:100px; type="submit" class="btn btn-primary mr-2">Edit</button>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.MatHang.TenMH)
-        </dt>
+                </a>
 
-        <dd>
-            @Html.DisplayFor(model => model.MatHang.TenMH)
-        </dd>
-
-    </dl>
+                <a href="~/Admin/AdminChiTietHoaDons/Index">
+                    <button type="button" class="btn btn-outline-secondary btn-lg btn-block" style="width:300px; margin-top:40px">Trở về</button>
+                </a>
+            </form>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.IDChiTietHD }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

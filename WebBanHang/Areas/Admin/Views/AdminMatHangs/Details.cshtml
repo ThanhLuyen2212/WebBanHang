@@ -5,95 +5,92 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Details</h2>
 
-<div>
-    <h4>MatHang</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.TenMH)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.TenMH)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.MoTa)
-        </dt>
+<div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Chi tiết mặt hàng</h4>
 
-        <dd>
-            @Html.DisplayFor(model => model.MoTa)
-        </dd>
+            <form class="forms-sample">
+                <div class="form-group row">
+                    <label for="exampleInputUsername2" class="col-sm-3 col-form-label">ID mặt hàng</label>
+                    <div class="col-sm-9">
+                        @Html.DisplayFor(model => model.IDMH)
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Tên mặt hàng</label>
+                    <div class="col-sm-9">
+                        @Html.DisplayFor(model => model.TenMH)
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Loại mặt hàng</label>
+                    <div class="col-sm-9">
+                        @Html.DisplayFor(model => model.LoaiMatHang.TenLoaiMH)
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Mô tả </label>
+                    <div class="col-sm-9">
+                        @Html.DisplayFor(model => model.MoTa)
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Mô tả chi tiết</label>
+                    <div class="col-sm-9">
+                        @Html.DisplayFor(model => model.MoTaChiTiet)
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Đơn hàng</label>
+                    <div class="col-sm-9">
+                        @Html.DisplayFor(model => model.DonGia)
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Ngày nhập hàng</label>
+                    <div class="col-sm-9">
+                        @Html.DisplayFor(model => model.NgayNhapHang)
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Hình ảnh1</label>
+                    <div class="col-sm-9">
+                        <img src="@Url.Content(Model.HinhAnh1)" style="width: 100px; height: 150px; border-radius:0%" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Hình ảnh2</label>
+                    <div class="col-sm-9">
+                        <img src="@Url.Content(Model.HinhAnh2)" style="width: 100px; height: 150px; border-radius:0%" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Hình ảnh3</label>
+                    <div class="col-sm-9">
+                        <img src="@Url.Content(Model.HinhAnh3)" style="width: 100px; height: 150px; border-radius:0%" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Hình ảnh4</label>
+                    <div class="col-sm-9">
+                        <img src="@Url.Content(Model.HinhAnh4)" style="width: 100px; height: 150px; border-radius:0%" />
+                    </div>
+                </div>
+              
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DonGia)
-        </dt>
+                <a href="~/Admin/AdminMatHangs/Edit/@Model.IDMH">
+                    <button style="width:100px; type="submit" class="btn btn-primary mr-2">Edit</button>
 
-        <dd>
-            @Html.DisplayFor(model => model.DonGia)
-        </dd>
+                </a>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NgayNhapHang)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NgayNhapHang)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.HinhAnh1)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.HinhAnh1)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.HinhAnh2)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.HinhAnh2)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.HinhAnh3)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.HinhAnh3)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.HinhAnh4)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.HinhAnh4)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MoTaChiTiet)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MoTaChiTiet)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.LoaiMatHang.TenLoaiMH)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.LoaiMatHang.TenLoaiMH)
-        </dd>
-
-    </dl>
+                <a href="~/Admin/AdminMatHangs/Index">
+                    <button type="button" class="btn btn-outline-secondary btn-lg btn-block" style="width:300px; margin-top:40px">Trở về</button>
+                </a>
+            </form>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.IDMH }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

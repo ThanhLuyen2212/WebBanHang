@@ -16,10 +16,27 @@ namespace WebBanHang.Areas.Admin.Controllers
         private WebBanHangEntities db = new WebBanHangEntities();
 
         // GET: Admin/AdminMatHangs
-        public ActionResult Index()
+        public ActionResult Index(string TenMH)
         {
-            var matHangs = db.MatHangs.Include(m => m.LoaiMatHang);
-            return View(matHangs.ToList());
+            if (Session["UserName"] == null)
+            {
+                return RedirectToAction("Index", "AdminLogin", new { Areas = "Admin" });
+            }
+            else
+            {
+                var matHangs = db.MatHangs.Include(m => m.LoaiMatHang);
+                if (TenMH == null)
+                {
+                    return View(matHangs.ToList());
+                }else if (TenMH.Equals(""))
+                {
+                    return View(matHangs.ToList());
+                }
+                else
+                {
+                    return View (db.MatHangs.Where(s => s.TenMH.Equals(TenMH)).ToList());
+                }
+            }
         }
 
         // GET: Admin/AdminMatHangs/Details/5
@@ -53,15 +70,39 @@ namespace WebBanHang.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (matHang.UploadImage != null)
-                {
-                    string filename = Path.GetFileNameWithoutExtension(matHang.UploadImage.FileName);
-                    string ex = Path.GetExtension(matHang.UploadImage.FileName);
-                    filename = filename + ex;
-                    matHang.HinhAnh1 = "~/Images/" + filename;
-                    matHang.UploadImage.SaveAs(Path.Combine(Server.MapPath("~/Images/"), filename));
-                }
 
+                if (matHang.UploadImage1 != null)
+                {   
+                    string filename = Path.GetFileNameWithoutExtension(matHang.UploadImage1.FileName);
+                    string ex = Path.GetExtension(matHang.UploadImage1.FileName);
+                    filename = filename + ex;
+                    matHang.HinhAnh1 = "~/Images/" + filename;                   
+                    matHang.UploadImage1.SaveAs(Path.Combine(Server.MapPath("~/Images/"), filename));
+                }
+                if (matHang.UploadImage2 != null)
+                {
+                    string filename = Path.GetFileNameWithoutExtension(matHang.UploadImage2.FileName);
+                    string ex = Path.GetExtension(matHang.UploadImage2.FileName);
+                    filename = filename + ex;
+                    matHang.HinhAnh2 = "~/Images/" + filename;
+                    matHang.UploadImage2.SaveAs(Path.Combine(Server.MapPath("~/Images/"), filename));
+                }
+                if (matHang.UploadImage3 != null)
+                {
+                    string filename = Path.GetFileNameWithoutExtension(matHang.UploadImage3.FileName);
+                    string ex = Path.GetExtension(matHang.UploadImage3.FileName);
+                    filename = filename + ex;
+                    matHang.HinhAnh3 = "~/Images/" + filename;
+                    matHang.UploadImage3.SaveAs(Path.Combine(Server.MapPath("~/Images/"), filename));
+                }
+                if (matHang.UploadImage4 != null)
+                {
+                    string filename = Path.GetFileNameWithoutExtension(matHang.UploadImage4.FileName);
+                    string ex = Path.GetExtension(matHang.UploadImage4.FileName);
+                    filename = filename + ex;
+                    matHang.HinhAnh4 = "~/Images/" + filename;
+                    matHang.UploadImage4.SaveAs(Path.Combine(Server.MapPath("~/Images/"), filename));
+                }
                 db.MatHangs.Add(matHang);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -92,7 +133,7 @@ namespace WebBanHang.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IDMH,TenMH,IDLoaiMH,MoTa,DonGia,NgayNhapHang,HinhAnh1,HinhAnh2,HinhAnh3,HinhAnh4,MoTaChiTiet")] MatHang matHang)
+        public ActionResult Edit(MatHang matHang)
         {
             if (ModelState.IsValid)
             {
