@@ -78,7 +78,7 @@ namespace WebBanHang.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IDTrangThai,TenTrangThai")] TrangThai trangThai)
+        public ActionResult Edit(TrangThai trangThai)
         {
             if (ModelState.IsValid)
             {

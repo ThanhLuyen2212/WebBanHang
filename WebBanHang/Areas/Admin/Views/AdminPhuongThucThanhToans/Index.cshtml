@@ -5,30 +5,49 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Index</h2>
+<div class="col-lg-10 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title">Danh sách phương thức thanh toán</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.TenPT)
-        </th>
-        <th></th>
-    </tr>
+            <a href="~/Admin/AdminPhuongThucThanhToans/Create">
+                <button type="button" class="btn btn-primary btn-fw">Tạo một phương thức thanh toán mới</button>
+            </a>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.TenPT)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IDPT }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IDPT }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IDPT })
-        </td>
-    </tr>
-}
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th style="color:white">
+                                Tên phương thức
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
-</table>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TenPT)
+                                </td>
+                                <td>
+                                    <a href="~/Admin/AdminPhuongThucThanhToans/Details/@item.IDPT">
+                                        <button style="min-width:50px" type="button" class="btn btn-outline-success btn-fw">Details</button>
+                                    </a>
+                                    <a href="~/Admin/AdminPhuongThucThanhToans/Edit/@item.IDPT">
+                                        <button style="min-width:50px" type="button" class="btn btn-outline-warning btn-fw">Edit</button>
+                                    </a>
+                                    <a href="~/Admin/AdminPhuongThucThanhToans/Delete/@item.IDPT">
+                                        <button style="min-width:50px" type="button" class="btn btn-outline-danger btn-fw">Delete</button>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
