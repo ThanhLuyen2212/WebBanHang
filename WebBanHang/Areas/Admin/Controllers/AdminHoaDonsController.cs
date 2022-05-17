@@ -17,6 +17,12 @@ namespace WebBanHang.Areas.Admin.Controllers
         // GET: Admin/AdminHoaDons
         public ActionResult Index()
         {
+            if (Session["Admin"] == null)
+            {
+                return RedirectToAction("Index", "AdminLogin");
+            }
+
+            Session["HoaDonCho"] = db.HoaDons.Where(c => c.TrangThai.TenTrangThai.Equals("Chờ duyệt đơn hàng")).Count();
             var hoaDons = db.HoaDons.Include(h => h.KhachHang).Include(h => h.PhuongThucThanhToan).Include(h => h.TrangThai);
             return View(hoaDons.ToList());
         }
@@ -58,7 +64,7 @@ namespace WebBanHang.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            Session["HoaDonCho"] = db.HoaDons.Where(c => c.TrangThai.TenTrangThai.Equals("Chờ duyệt đơn hàng")).Count();
             ViewBag.IDKH = new SelectList(db.KhachHangs, "IDKH", "TenKH", hoaDon.IDKH);
             ViewBag.IDPT = new SelectList(db.PhuongThucThanhToans, "IDPT", "TenPT", hoaDon.IDPT);
             ViewBag.IDTrangThai = new SelectList(db.TrangThais, "IDTrangThai", "TenTrangThai", hoaDon.IDTrangThai);
@@ -77,6 +83,7 @@ namespace WebBanHang.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
+            Session["HoaDonCho"] = db.HoaDons.Where(c => c.TrangThai.TenTrangThai.Equals("Chờ duyệt đơn hàng")).Count();
             ViewBag.IDKH = new SelectList(db.KhachHangs, "IDKH", "TenKH", hoaDon.IDKH);
             ViewBag.IDPT = new SelectList(db.PhuongThucThanhToans, "IDPT", "TenPT", hoaDon.IDPT);
             ViewBag.IDTrangThai = new SelectList(db.TrangThais, "IDTrangThai", "TenTrangThai", hoaDon.IDTrangThai);
@@ -96,6 +103,7 @@ namespace WebBanHang.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            Session["HoaDonCho"] = db.HoaDons.Where(c => c.TrangThai.TenTrangThai.Equals("Chờ duyệt đơn hàng")).Count();
             ViewBag.IDKH = new SelectList(db.KhachHangs, "IDKH", "TenKH", hoaDon.IDKH);
             ViewBag.IDPT = new SelectList(db.PhuongThucThanhToans, "IDPT", "TenPT", hoaDon.IDPT);
             ViewBag.IDTrangThai = new SelectList(db.TrangThais, "IDTrangThai", "TenTrangThai", hoaDon.IDTrangThai);
@@ -114,6 +122,7 @@ namespace WebBanHang.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
+            Session["HoaDonCho"] = db.HoaDons.Where(c => c.TrangThai.TenTrangThai.Equals("Chờ duyệt đơn hàng")).Count();
             return View(hoaDon);
         }
 

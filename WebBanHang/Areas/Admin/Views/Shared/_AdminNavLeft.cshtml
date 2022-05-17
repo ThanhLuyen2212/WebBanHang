@@ -1,13 +1,17 @@
-﻿
+﻿@using WebBanHang.Models;
+@{ 
+    Admin admin = (Admin)Session["Admin"];
+}
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
         <a class="sidebar-brand brand-logo" href="~/Admin/AdminHome/Index" style="width:100%">
-            <img style="height: 30px; width:30px; float:left" src="~/Areas/Admin/Assets/images/bookshelf.png" alt="logo" /> <h5 style="color:white">QL THƯ VIỆN</h5>
+            <img style="height: 30px; width:30px; float:left" src="~/Images/desktop-computer.png" /> 
+            <h5 style="color:white; margin-top:5px;margin-left:40px">Shop Online</h5>
         </a>
-
+       
         <a class="sidebar-brand brand-logo-mini" href="~/Admin/AdminHome/Index">
             <p style="color:white; width:100%">
-                <img style="height: 42px; width:42px; float:left" src="~/Areas/Admin/Assets/images/bookshelf.png" alt="logo" />
+                <img style="height: 42px; width:42px; float:left" src="~/Areas/Admin/Assets/images/bookshelf.png" />
             </p>
         </a>
     </div>
@@ -16,8 +20,8 @@
             <div class="profile-desc">
                 <div class="profile-pic">
                     <div class="count-indicator">
-                        <img class="img-xs rounded-circle " src="~/Areas/Admin/Assets/images/faces/user.png" alt="">
-
+                        <img class="img-xs rounded-circle " src="~/Images/user.png" alt="">
+                        
                     </div>
                     <div class="profile-name">
                         <h5 class="mb-0 font-weight-normal">@Session["TenAdmin"]</h5>
@@ -27,7 +31,7 @@
                 <a href="#" id="profile-dropdown" data-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></a>
                 <div class="dropdown-menu dropdown-menu-right sidebar-dropdown preview-list" aria-labelledby="profile-dropdown">
 
-                    <a href="#" class="dropdown-item preview-item">
+                    <a href="~/Admin/AdminsManager/Edit/@admin.IDAdmin" class="dropdown-item preview-item">
                         <div class="preview-thumbnail">
                             <div class="preview-icon bg-dark rounded-circle">
                                 <i class="mdi mdi-onepassword  text-info"></i>
@@ -38,7 +42,7 @@
                         </div>
                     </a>
                     <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item preview-item">
+                    <a href="~/Admin/AdminsManager/Details/@admin.IDAdmin" class="dropdown-item preview-item">
                         <div class="preview-thumbnail">
                             <div class="preview-icon bg-dark rounded-circle">
                                 <i class="mdi mdi-calendar-today text-success"></i>
@@ -53,14 +57,14 @@
             </div>
         </li>
         <li class="nav-item nav-category">
-            <span class="nav-link">Navigation</span>
+            <span class="nav-link">Các chức năng</span>
         </li>
         <li class="nav-item menu-items">
             <a class="nav-link" href="~/Admin/AdminHome/Index">
                 <span class="menu-icon">
                     <i class="mdi mdi-speedometer"></i>
                 </span>
-                <span class="menu-title">Dashboard</span>
+                <span class="menu-title">Trang chủ</span>
             </a>
             @*</li>*@
             @*<li class="nav-item menu-items">

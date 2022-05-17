@@ -18,6 +18,7 @@ namespace WebBanHang.Areas.Admin.Controllers
         // GET: Admin/AdminMatHangs
         public ActionResult Index(string TenMH)
         {
+          
             if (Session["UserName"] == null)
             {
                 return RedirectToAction("Index", "AdminLogin", new { Areas = "Admin" });

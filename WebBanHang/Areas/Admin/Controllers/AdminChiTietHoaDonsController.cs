@@ -17,6 +17,10 @@ namespace WebBanHang.Areas.Admin.Controllers
         // GET: Admin/AdminChiTietHoaDons
         public ActionResult Index()
         {
+            if (Session["Admin"] == null)
+            {
+                return RedirectToAction("Index", "AdminLogin");
+            }
             var chiTietHoaDons = db.ChiTietHoaDons.Include(c => c.HoaDon).Include(c => c.MatHang);
             return View(chiTietHoaDons.ToList());
         }

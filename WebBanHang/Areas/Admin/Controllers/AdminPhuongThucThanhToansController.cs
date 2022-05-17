@@ -17,6 +17,10 @@ namespace WebBanHang.Areas.Admin.Controllers
         // GET: Admin/AdminPhuongThucThanhToans
         public ActionResult Index()
         {
+            if (Session["Admin"] == null)
+            {
+                return RedirectToAction("Index", "AdminLogin");
+            }
             return View(db.PhuongThucThanhToans.ToList());
         }
 

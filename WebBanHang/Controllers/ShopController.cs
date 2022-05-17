@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebBanHang.Models;
+using PagedList;
 
 namespace WebBanHang.Controllers
 {
@@ -16,6 +17,7 @@ namespace WebBanHang.Controllers
         public ActionResult Index(string idLoaiMH ,string TenTheLoai, string TenMatHang)
         {
             ViewBag.Category = data.LoaiMatHangs.ToList();
+           
 
             if (TenTheLoai != null)
             {                            
@@ -35,6 +37,7 @@ namespace WebBanHang.Controllers
             else
             {
                 ViewBag.MatHangTheoTheLoai = data.MatHangs.ToList();
+                
             }
             return View();
 
