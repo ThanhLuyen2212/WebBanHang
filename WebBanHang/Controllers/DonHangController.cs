@@ -3,30 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using WebBanHang.Models;
 
 namespace WebBanHang.Controllers
 {
-    public class ThongBaoController : Controller
+    public class DonHangController : Controller
     {
-        WebBanHangEntities data = new WebBanHangEntities();
-        // GET: ThongBao
+        // GET: DonHang
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult MuaThanhCong()
+        public ActionResult DatHangThanhCong()
         {
-
             return View();
         }
 
         public ActionResult CacDonHang()
         {
-            KhachHang khachhang = (KhachHang) Session["KhachHang"];
-            ViewBag.HoaDon = data.HoaDons.Where(c => c.IDKH == khachhang.IDKH).ToList();
-            
             return View();
         }
     }

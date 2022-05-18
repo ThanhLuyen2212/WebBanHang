@@ -79,7 +79,10 @@ namespace WebBanHang.Controllers
                 hoaDon.TongTien = hoaDon1.TongTien;
 
                 data.SaveChanges();
-                return RedirectToAction("Index","Shop");
+                Session.Remove("HoaDon");
+                Session.Remove("GioHang");
+                Session.Remove("SoLuongHangTrongGioHang");
+                return RedirectToAction("MuaThanhCong","ThongBao");
             }
 
             GioHang gioHang = (GioHang)Session["GioHang"];
@@ -95,7 +98,7 @@ namespace WebBanHang.Controllers
             ViewBag.IDKH = new SelectList(data.KhachHangs, "IDKH", "TenKH", hoaDon.IDKH);
             ViewBag.IDPT = new SelectList(data.PhuongThucThanhToans, "IDPT", "TenPT", hoaDon.IDPT);
             ViewBag.IDTrangThai = new SelectList(data.TrangThais, "IDTrangThai", "TenTrangThai", hoaDon.IDTrangThai);
-            gioHang.clear();
+            
             return View(hoaDon);
         }
 

@@ -37,5 +37,11 @@ namespace WebBanHang.Controllers
                 return RedirectToAction("Index", "Home");
             }
         }
+
+        public ActionResult Logout()
+        {
+            Session.RemoveAll();
+            return RedirectToAction("Index", "Login");
+        }
     }
 }

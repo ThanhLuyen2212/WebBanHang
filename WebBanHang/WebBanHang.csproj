@@ -147,6 +147,7 @@
     <Compile Include="Areas\Admin\Controllers\AdminsManagerController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminTrangThaisController.cs" />
     <Compile Include="Controllers\ChiTietSanPhamController.cs" />
+    <Compile Include="Controllers\DonHangController.cs" />
     <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -1354,12 +1355,14 @@
     <Content Include="Views\Shop\Index.cshtml" />
     <Content Include="Views\ChiTietSanPham\Index.cshtml" />
     <Content Include="Views\XacNhanDonHang\XacNhan.cshtml" />
+    <Content Include="Views\ThongBao\MuaThanhCong.cshtml" />
+    <Content Include="Views\ThongBao\CacDonHang.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\Login\" />
-    <Folder Include="Views\ThongBao\" />
+    <Folder Include="Views\DonHang\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -158,9 +158,7 @@ namespace WebBanHang.Controllers
                 hoadon.TongTien = tongtien;
                 Session["HoaDon"] = hoadon;                 
                 Session["GioHang"] = gio;
-
-                
-
+               
                 data.SaveChanges();
                 //gio.clear();
                 return RedirectToAction("XacNhan", "XacNhanDonHang", new { id = hoadon.IDHD });
