@@ -25,24 +25,24 @@
                                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                                 @Html.HiddenFor(model => model.IDHD)
                                 <div class="checkout__form__input">
-                                    <p>Họ tên khách hàng</p>
-                                    <input type="text" name="TenKH" value="@khachHang.TenKH">
+                                    <p>Họ tên khách hàng</p>                                   
+                                    <input type="text" name="TenKH" value="@khachHang.TenKH"  style="padding:3px 300px 3px 3px">                                    
                                 </div>
                                 <div class="checkout__form__input">
                                     <p>Địa chỉ</p>
-                                    <input type="text" name="DiaChi" value="@khachHang.DiaChi">
+                                    <input type="text" name="DiaChi" value="@khachHang.DiaChi" style="padding:3px 300px 3px 3px">
                                 </div>
                                 <div class="checkout__form__input">
                                     <p>Email</p>
-                                    <input type="text" name="Email" value="@khachHang.Email">
+                                    <input type="text" name="Email" value="@khachHang.Email" style="padding:3px 300px 3px 3px">
                                 </div>
                                 <div class="checkout__form__input">
                                     <p>Số điện thoại</p>
-                                    <input type="text" name="SDT" value="@khachHang.SDT">
+                                    <input type="text" name="SDT" value="@khachHang.SDT" style="padding:3px 300px 3px 3px" >
                                 </div>
                                 <div class="checkout__form__input">
                                     <p>Ngày mua</p>
-                                    <input type="datetime" name="NgayMua" value="@DateTime.Now">
+                                    
                                     @Html.EditorFor(model => model.NgayMua, new { htmlAttributes = new { @class = "form-control" } })
                                     @Html.ValidationMessageFor(model => model.NgayMua, "", new { @class = "text-danger" })
                                 </div>

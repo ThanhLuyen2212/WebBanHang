@@ -1,9 +1,12 @@
-﻿@using WebBanHang.Models
-@model IEnumerable<WebBanHang.Models.MatHang>
+﻿@using WebBanHang.Models;
+@using PagedList.Mvc;
+@using PagedList;
+@model PagedList.IPagedList<WebBanHang.Models.MatHang>
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    List<MatHang> hangtheotheloai = ViewBag.MatHangTheoTheLoai;
+    @*List<MatHang> hangtheotheloai = ViewBag.MatHangTheoTheLoai;*@
 }
 
 
@@ -33,9 +36,12 @@
                     </div>                   
                 </div>
             </div>
+
+
+
             <div class="col-lg-9 col-md-9">
                 <div class="row">
-                    @foreach (var item in hangtheotheloai)
+                    @foreach (var item in Model)
                     {
                         <div class="col-lg-4 col-md-6">
                             <div class="product__item">
@@ -48,23 +54,35 @@
                                         <div class="product__price">@item.DonGia</div>
                                     </div>
                                 </a>
-
-                                
                             </div>
                         </div>
+
                     }
-                    
-                    <div class="col-lg-12 text-center">
+
+                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }),
+                        new PagedListRenderOptions
+                        {
+                            LiElementClasses = new string[] { "pagination__option" },
+                            DisplayLinkToIndividualPages = true,
+                            DisplayPageCountAndCurrentLocation = false,
+                            MaximumPageNumbersToDisplay = 10,
+                            
+                        })
+
+
+                    @*<><i class="fa fa-angle-right"></i></a>
+                        </div>div class="col-lg-12 text-center">
                         <div class="pagination__option">
-                            <a href="#">1</a>
-                            <a href="#">2</a>
-                            <a href="#">3</a>
-                            <a href="#"><i class="fa fa-angle-right"></i></a>
-                        </div>
-                    </div>
+                            <a clas href="#">1</a>
+                            <a  href="#">2</a>
+                            <a  href="#">3</a>
+                            <a  href="#"
+                    </div>*@
                 </div>
             </div>
         </div>
     </div>
 </section>
 <!-- Shop Section End -->
+
+

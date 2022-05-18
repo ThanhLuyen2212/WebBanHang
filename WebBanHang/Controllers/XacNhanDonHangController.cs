@@ -95,6 +95,7 @@ namespace WebBanHang.Controllers
             ViewBag.IDKH = new SelectList(data.KhachHangs, "IDKH", "TenKH", hoaDon.IDKH);
             ViewBag.IDPT = new SelectList(data.PhuongThucThanhToans, "IDPT", "TenPT", hoaDon.IDPT);
             ViewBag.IDTrangThai = new SelectList(data.TrangThais, "IDTrangThai", "TenTrangThai", hoaDon.IDTrangThai);
+            gioHang.clear();
             return View(hoaDon);
         }
 

@@ -25,11 +25,8 @@
 
 
 
-                    @if (Session["UserName"] == null)
+                    @if (Session["KhachHang"] == null)
                     {
-
-
-
                         <div class="header__right__auth">
                             <a href="~/Login/Index">Login</a>
                             <a href="~/Register/Index">Register</a>
@@ -39,10 +36,9 @@
                     {
                         <div class="header__right__auth">
                             <div class="dropdown">
-                                <button class="dropbtn"></button>
+                                <button class="dropbtn" style="background-image:url("~/Images/user.png")"></button>
                                 <div class="dropdown-content">
                                     <a href="~/Login/Index">Logout</a>
-
                                 </div>
                             </div>
                         </div>
@@ -61,10 +57,6 @@
                             </li>
                         </ul>
                     }
-
-
-
-
                 </div>
             </div>
         </div>
