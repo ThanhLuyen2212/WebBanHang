@@ -38,6 +38,11 @@ namespace WebBanHang.Controllers
             }
         }
 
+        public ActionResult Register(KhachHang user)
+        {
+            return View();
+        }
+
         public ActionResult Logout()
         {
             Session.RemoveAll();

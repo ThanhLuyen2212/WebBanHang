@@ -145,6 +145,7 @@
     <Compile Include="Areas\Admin\Controllers\AdminMatHangsController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminPhuongThucThanhToansController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminsManagerController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminThongKeController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminTrangThaisController.cs" />
     <Compile Include="Controllers\ChiTietSanPhamController.cs" />
     <Compile Include="Controllers\DonHangController.cs" />
@@ -1322,6 +1323,7 @@
     <Content Include="Areas\Admin\Views\AdminKhachHangs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\AdminKhachHangs\Index.cshtml" />
     <Content Include="Areas\Admin\Views\AdminLogin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminThongKe\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -1357,6 +1359,7 @@
     <Content Include="Views\XacNhanDonHang\XacNhan.cshtml" />
     <Content Include="Views\ThongBao\MuaThanhCong.cshtml" />
     <Content Include="Views\ThongBao\CacDonHang.cshtml" />
+    <Content Include="Views\Login\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

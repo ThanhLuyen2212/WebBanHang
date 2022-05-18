@@ -24,9 +24,11 @@ namespace WebBanHang.Controllers
 
         public ActionResult CacDonHang()
         {
-            KhachHang khachhang = (KhachHang) Session["KhachHang"];
-            ViewBag.HoaDon = data.HoaDons.Where(c => c.IDKH == khachhang.IDKH).ToList();
-            
+            if (Session["KhachHang"] != null)
+            {
+                KhachHang khachhang = (KhachHang)Session["KhachHang"];
+                ViewBag.HoaDon = data.HoaDons.Where(c => c.IDKH == khachhang.IDKH).ToList();
+            }            
             return View();
         }
     }
