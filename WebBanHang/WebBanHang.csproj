@@ -147,6 +147,8 @@
     <Compile Include="Areas\Admin\Controllers\AdminsManagerController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminThongKeController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminTrangThaisController.cs" />
+    <Compile Include="Areas\Admin\Models\ThongKeTheoKhachHang.cs" />
+    <Compile Include="Areas\Admin\Models\ThongKeTheoSanPham.cs" />
     <Compile Include="Controllers\ChiTietSanPhamController.cs" />
     <Compile Include="Controllers\DonHangController.cs" />
     <Compile Include="Controllers\GioHangController.cs" />
@@ -1324,6 +1326,8 @@
     <Content Include="Areas\Admin\Views\AdminKhachHangs\Index.cshtml" />
     <Content Include="Areas\Admin\Views\AdminLogin\Index.cshtml" />
     <Content Include="Areas\Admin\Views\AdminThongKe\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminThongKe\ThongKeDoanhThuTheoKhachHang.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminThongKe\ThongKeDoanhThuTheoSanPham.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -1350,7 +1354,6 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
-    <Content Include="Views\Shared\_NavLeft.cshtml" />
     <Content Include="Views\Shared\_Header.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\GioHang\Show.cshtml" />
@@ -1358,14 +1361,15 @@
     <Content Include="Views\ChiTietSanPham\Index.cshtml" />
     <Content Include="Views\XacNhanDonHang\XacNhan.cshtml" />
     <Content Include="Views\ThongBao\MuaThanhCong.cshtml" />
-    <Content Include="Views\ThongBao\CacDonHang.cshtml" />
     <Content Include="Views\Login\Register.cshtml" />
+    <Content Include="Views\DonHang\DatHangThanhCong.cshtml" />
+    <Content Include="Views\ThongBao\CacMatHangDaMua.cshtml" />
+    <Content Include="Views\ThongBao\CacDonHangDangCho.cshtml" />
+    <Content Include="Views\ThongBao\TatCaCacDonHang.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\Login\" />
-    <Folder Include="Views\DonHang\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -38,7 +38,7 @@
                                                 <h6>@Html.DisplayFor(Model => item.gioHang.TenMH)</h6>
                                             </div>
                                         </td>
-                                        <td class="cart__price">@Html.DisplayFor(Model => item.gioHang.DonGia)  <span>VND</span></td>
+                                        <td class="cart__price money">@Html.DisplayFor(Model => item.gioHang.DonGia)  <span>VND</span></td>
 
                                         @using (Html.BeginForm("Update_quantity", "GioHang"))
                                         {

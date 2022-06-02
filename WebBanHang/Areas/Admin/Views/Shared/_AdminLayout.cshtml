@@ -66,5 +66,20 @@
     <!-- Custom js for this page -->
     <script src="~/Areas/Admin/Assets/js/dashboard.js"></script>
     <!-- End custom js for this page -->
+
+    <script>
+        function numberWithCommas(x) {
+            return x.toString().replace(/\B(?=(?:\d{3})+(?!\d))/g, ",");
+        }
+
+
+        $('.money').each(function () {
+            var v_pound = $(this).html();
+            v_pound = numberWithCommas(v_pound);
+
+            $(this).html(v_pound)
+
+        })
+    </script>
 </body>
 </html>

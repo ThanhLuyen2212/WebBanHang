@@ -31,7 +31,7 @@ namespace WebBanHang.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Models.Admin admin = db.Admins.Find(id);
+            WebBanHang.Models.Admin admin = db.Admins.Find(id);
             if (admin == null)
             {
                 return HttpNotFound();
@@ -50,7 +50,7 @@ namespace WebBanHang.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IDAdmin,TenAdmin,SDT,DiaChi,NgaySinh,UserName,Password")] Models.Admin admin)
+        public ActionResult Create([Bind(Include = "IDAdmin,TenAdmin,SDT,DiaChi,NgaySinh,UserName,Password")] WebBanHang.Models.Admin admin)
         {
             if (ModelState.IsValid)
             {
@@ -69,7 +69,7 @@ namespace WebBanHang.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Models.Admin admin = db.Admins.Find(id);
+            WebBanHang.Models.Admin admin = db.Admins.Find(id);
             if (admin == null)
             {
                 return HttpNotFound();
@@ -82,7 +82,7 @@ namespace WebBanHang.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IDAdmin,TenAdmin,SDT,DiaChi,NgaySinh,UserName,Password")] Models.Admin admin)
+        public ActionResult Edit([Bind(Include = "IDAdmin,TenAdmin,SDT,DiaChi,NgaySinh,UserName,Password")] WebBanHang.Models.Admin admin)
         {
             if (ModelState.IsValid)
             {
@@ -100,7 +100,7 @@ namespace WebBanHang.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Models.Admin admin = db.Admins.Find(id);
+            WebBanHang.Models.Admin admin = db.Admins.Find(id);
             if (admin == null)
             {
                 return HttpNotFound();
@@ -113,7 +113,7 @@ namespace WebBanHang.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Models.Admin admin = db.Admins.Find(id);
+            WebBanHang.Models.Admin admin = db.Admins.Find(id);
             db.Admins.Remove(admin);
             db.SaveChanges();
             return RedirectToAction("Index");

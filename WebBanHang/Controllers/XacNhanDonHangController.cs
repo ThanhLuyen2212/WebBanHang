@@ -11,29 +11,6 @@ namespace WebBanHang.Controllers
     public class XacNhanDonHangController : Controller
     {
         WebBanHangEntities data = new WebBanHangEntities();
-        // GET: XacNhanDonHang
-
-
-       
-/*        public ActionResult XacNhan(HoaDon hoaDon)
-        {
-            HoaDon hoaDon1 = (HoaDon)Session["HoaDon"];
-            GioHang gioHang = (GioHang)Session["GioHang"];
-            
-            if(hoaDon1 == null || gioHang == null) return RedirectToAction("Index", "Login");
-
-            hoaDon = hoaDon1;
-            ViewBag.HoaDon = hoaDon1;
-            ViewBag.GioHang = gioHang;
-
-            ViewData["PhuongThucThanhToan"] = new SelectList(data.PhuongThucThanhToans.ToList(), "IDPT", "TenPT",hoaDon1.PhuongThucThanhToan);
-
-            hoaDon1.IDTrangThai = 1;
-
-            data.SaveChanges();
-
-            return View();
-        }*/
 
         // GET: Admin/AdminHoaDons/Edit/5
         public ActionResult XacNhan(int? id)

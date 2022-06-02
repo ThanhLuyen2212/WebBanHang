@@ -37,10 +37,23 @@ namespace WebBanHang.Controllers
                 return RedirectToAction("Index", "Home");
             }
         }
-
-        public ActionResult Register(KhachHang user)
+        [HttpGet]
+        public ActionResult Register()
         {
             return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Register(KhachHang khachHang)
+        {
+            if (ModelState.IsValid)
+            {
+                data.KhachHangs.Add(khachHang);
+                data.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(khachHang);
         }
 
         public ActionResult Logout()

@@ -135,7 +135,7 @@ namespace WebBanHang.Controllers
                 int _tongHang = 0;
                 foreach(var item in gio.ListHang)
                 {
-                    _tongHang += 1;                                  
+                    _tongHang += item._soLuongHang;                                  
 
                     if(_tongHang == 0)
                     {
@@ -152,9 +152,8 @@ namespace WebBanHang.Controllers
                     data.ChiTietHoaDons.Add(detail);
                     data.SaveChanges();
                 }
-
-                var soluonghang = _tongHang;
-                hoadon.TongSoluong = soluonghang;               
+               
+                hoadon.TongSoluong = _tongHang;               
                 hoadon.TongTien = tongtien;
                 Session["HoaDon"] = hoadon;                 
                 Session["GioHang"] = gio;

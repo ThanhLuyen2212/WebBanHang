@@ -26,25 +26,23 @@
                                 @Html.HiddenFor(model => model.IDHD)
                                 <div class="checkout__form__input">
                                     <p>Họ tên khách hàng</p>                                   
-                                    <input type="text" name="TenKH" value="@khachHang.TenKH"  style="padding:3px 300px 3px 3px">                                    
+                                    <input type="text" name="TenKH" value="@khachHang.TenKH" >                                    
                                 </div>
                                 <div class="checkout__form__input">
                                     <p>Địa chỉ</p>
-                                    <input type="text" name="DiaChi" value="@khachHang.DiaChi" style="padding:3px 300px 3px 3px">
+                                    <input type="text" name="DiaChi" value="@khachHang.DiaChi" >
                                 </div>
                                 <div class="checkout__form__input">
                                     <p>Email</p>
-                                    <input type="text" name="Email" value="@khachHang.Email" style="padding:3px 300px 3px 3px">
+                                    <input type="text" name="Email" value="@khachHang.Email">
                                 </div>
                                 <div class="checkout__form__input">
                                     <p>Số điện thoại</p>
-                                    <input type="text" name="SDT" value="@khachHang.SDT" style="padding:3px 300px 3px 3px" >
+                                    <input type="text" name="SDT" value="@khachHang.SDT"  >
                                 </div>
                                 <div class="checkout__form__input">
                                     <p>Ngày mua</p>
-                                    
-                                    @Html.EditorFor(model => model.NgayMua, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.NgayMua, "", new { @class = "text-danger" })
+                                    <input type="datetime" name="NgayMua" value="@DateTime.Now" />                                   
                                 </div>
                                 <div class="checkout__form__input">
                                     <p>Phương thức thanh toán</p>
@@ -69,8 +67,8 @@
                                     {
                                         <li>
                                             @item.gioHang.TenMH
-                                            <span>@item._soLuongHang</span>
-                                            <span style="margin-right:100px">@item.gioHang.DonGia</span>
+                                            <span class="money">@item.gioHang.DonGia VND</span>
+                                            <span style="margin-right:90px">@item._soLuongHang</span>
                                         </li>
 
                                     }
@@ -79,7 +77,7 @@
                             </div>
                             <div class="checkout__order__total">
                                 <ul>
-                                    <li>Tổng cộng <span>@hoaDon.TongTien</span></li>
+                                    <li>Tổng cộng <span class="money">@hoaDon.TongTien VND</span></li>
                                 </ul>
                             </div>
 
@@ -93,3 +91,13 @@
     <!-- Checkout Section End -->
 
 }
+
+
+<style>
+    input {
+        padding: 3px 355px 3px 3px;
+        color:black;
+        margin-bottom:5px;
+       
+    }
+</style>

@@ -14,7 +14,7 @@ namespace WebBanHang.Controllers
         WebBanHangEntities data = new WebBanHangEntities();
         // GET: Shop
 
-        public ActionResult Index(string idLoaiMH ,string TenTheLoai, string TenMatHang, int page=1 , int pagelist = 3)
+        public ActionResult Index(string idLoaiMH ,string TenTheLoai, string TenMatHang, int page=1 , int pagelist = 6)
         {
             ViewBag.Category = data.LoaiMatHangs.ToList();
            

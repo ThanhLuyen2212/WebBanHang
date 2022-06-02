@@ -17,9 +17,9 @@ namespace WebBanHang.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public ActionResult LoginAdmin(Models.Admin admin)
+        public ActionResult LoginAdmin(WebBanHang.Models.Admin admin)
         {
-            Models.Admin check = data.Admins.Where(s => s.UserName == admin.UserName && s.Password == admin.Password).FirstOrDefault();
+            WebBanHang.Models.Admin check = data.Admins.Where(s => s.UserName == admin.UserName && s.Password == admin.Password).FirstOrDefault();
             if (check == null)
             {
                 ViewBag.ErrorInfo = "Sai thông tin tài khoản";

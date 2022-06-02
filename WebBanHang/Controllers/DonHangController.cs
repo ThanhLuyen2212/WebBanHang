@@ -16,11 +16,13 @@ namespace WebBanHang.Controllers
 
         public ActionResult DatHangThanhCong()
         {
+
             return View();
         }
 
         public ActionResult CacDonHang()
         {
+
             return View();
         }
     }

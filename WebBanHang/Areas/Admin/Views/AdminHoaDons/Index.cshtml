@@ -54,8 +54,8 @@
                             <td>
                                 @Html.DisplayFor(modelItem => item.TongSoluong)
                             </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.TongTien)
+                            <td class="money">
+                                @Html.DisplayFor(modelItem => item.TongTien) VND
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.PhuongThucThanhToan.TenPT)
@@ -73,6 +73,9 @@
                                 </a>
                                 <a href="~/Admin/AdminHoaDons/Delete/@item.IDHD">
                                     <button style="min-width:50px" type="button" class="btn btn-outline-danger btn-fw">Delete</button>
+                                </a>
+                                <a href="/Admin/AdminChiTietHoaDons/Index/?IDHD=@item.IDHD">
+                                    <button style="min-width:50px" type="button" class="btn btn-outline-light btn-fw">Chi tiết các sản phẩm</button>
                                 </a>
                             </td>
                         </tr>

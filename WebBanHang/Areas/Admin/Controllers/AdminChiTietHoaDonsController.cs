@@ -15,14 +15,29 @@ namespace WebBanHang.Areas.Admin.Controllers
         private WebBanHangEntities db = new WebBanHangEntities();
 
         // GET: Admin/AdminChiTietHoaDons
-        public ActionResult Index()
+        public ActionResult Index(string IDHD)
         {
             if (Session["Admin"] == null)
             {
                 return RedirectToAction("Index", "AdminLogin");
             }
-            var chiTietHoaDons = db.ChiTietHoaDons.Include(c => c.HoaDon).Include(c => c.MatHang);
-            return View(chiTietHoaDons.ToList());
+            else
+            {
+                if (IDHD == null)
+                {
+                    return View(db.ChiTietHoaDons.Include(c => c.HoaDon).Include(c => c.MatHang).ToList());
+                }
+                else if (IDHD.Equals(""))
+                {
+                    return View(db.ChiTietHoaDons.Include(c => c.HoaDon).Include(c => c.MatHang).ToList());
+                }
+                else
+                {
+                    int id = int.Parse(IDHD);
+                    return View(db.ChiTietHoaDons.Include(c => c.HoaDon).Include(c => c.MatHang).Where(c => c.IDHD == id).ToList());
+                }
+            }
+           
         }
 
         // GET: Admin/AdminChiTietHoaDons/Details/5
