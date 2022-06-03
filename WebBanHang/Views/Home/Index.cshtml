@@ -51,9 +51,9 @@
             {
                 <a href="~/ChiTietSanPham/Index/@item.IDMH">
                     <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="product__item">
-                            <div class="product__item__pic set-bg" style="background-image: url(@Url.Content(item.HinhAnh1))">
-                               
+                        <div class="product__item">                            
+                            <div>
+                                <img src="@Url.Content(item.HinhAnh1)" width="262px" height="360px" alt="Alternate Text" />
                             </div>
                             <div class="product__item__text">
                                 <h6><a href="#">@item.TenMH</a></h6>
@@ -136,17 +136,7 @@
                 <div class="section-title" style="width:500px">
                     <h3>Những sản phẩm bán chạy nhất</h3>
                 </div>
-            </div>
-            @*<div class="col-lg-8 col-md-8">
-                    <ul class="filter__controls">
-                        <li class="active" data-filter="*">All</li>
-                        <li data-filter=".women">Women’s</li>
-                        <li data-filter=".men">Men’s</li>
-                        <li data-filter=".kid">Kid’s</li>
-                        <li data-filter=".accessories">Accessories</li>
-                        <li data-filter=".cosmetic">Cosmetics</li>
-                    </ul>
-                </div>*@
+            </div>            
         </div>
 
 
@@ -157,12 +147,8 @@
                 <a href="~/ChiTietSanPham/Index/@item.IDMH">
                     <div class="col-lg-3 col-md-4 col-sm-6">
                         <div class="product__item">
-                            <div class="product__item__pic set-bg" style="background-image: url(@Url.Content(item.HinhAnh1))">
-                                @* <ul class="product__hover">
-                                <li><a href="/Assets/img/product/product-1.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
-                                <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                                <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-                            </ul>*@
+                            <div>
+                                <img src="@Url.Content(item.HinhAnh1)" width="262px" height="360px" alt="Alternate Text" />
                             </div>
                             <div class="product__item__text">
                                 <h6><a href="#">@item.TenMH</a></h6>
