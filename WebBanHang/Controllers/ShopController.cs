@@ -21,7 +21,7 @@ namespace WebBanHang.Controllers
 
             if (TenTheLoai != null)
             {                            
-                ViewBag.MatHangTheoTheLoai = data.MatHangs.Where(c => c.LoaiMatHang.TenLoaiMH == TenTheLoai);              
+                ViewBag.MatHangTheoTheLoai = data.MatHangs.Where(c => c.LoaiMatHang.TenLoaiMH.ToLower().Contains(TenTheLoai.ToLower()));              
             }
             else
             if (idLoaiMH != null)
@@ -34,7 +34,7 @@ namespace WebBanHang.Controllers
             if(TenMatHang != null)
             {
                 /*ViewBag.MatHangTheoTheLoai = data.MatHangs.Where(c => c.TenMH == TenMatHang).ToList();*/
-                return View(data.MatHangs.Where(c => c.TenMH == TenMatHang).OrderByDescending(c => c.IDMH).ToPagedList(page, pagelist));
+                return View(data.MatHangs.Where(c => c.TenMH.ToLower().Contains(TenMatHang.ToLower())).OrderByDescending(c => c.IDMH).ToPagedList(page, pagelist));
             }
             else
             {                
