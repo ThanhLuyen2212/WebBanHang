@@ -27,8 +27,7 @@ namespace WebBanHang.Controllers
             }
 
             GioHang gioHang = (GioHang)Session["GioHang"];         
-
-         
+            
             ViewBag.HoaDon = hoaDon;
             ViewBag.GioHang = gioHang;   
 

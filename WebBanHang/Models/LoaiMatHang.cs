@@ -18,8 +18,7 @@ namespace WebBanHang.Models
         public LoaiMatHang()
         {
             this.MatHangs = new HashSet<MatHang>();
-        }
-    
+        }    
         public int IDLoaiMH { get; set; }
         public string TenLoaiMH { get; set; }
     

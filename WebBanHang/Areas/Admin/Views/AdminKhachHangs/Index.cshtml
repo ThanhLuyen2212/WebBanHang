@@ -13,6 +13,9 @@
             <a href="~/Admin/AdminKhachHangs/Create">
                 <button type="button" class="btn btn-primary btn-fw">Tạo một khách hàng mới</button>
             </a>
+            <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
+                <input type="text" class="form-control" placeholder="Tìm kiếm theo tên khách hàng" name="tenKH">
+            </form>
 
             <div class="table-responsive">
 
@@ -47,41 +50,41 @@
 
                         @foreach (var item in Model)
                         {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.TenKH)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.SDT)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.DiaChi)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Email)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.NgaySinh)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.UserName)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Password)
-                            </td>
-                           
-                            <td>
-                                <a href="~/Admin/AdminKhachHangs/Details/@item.IDKH">
-                                    <button style="min-width:50px" type="button" class="btn btn-outline-success btn-fw">Details</button>
-                                </a>
-                                <a href="~/Admin/AdminKhachHangs/Edit/@item.IDKH">
-                                    <button style="min-width:50px" type="button" class="btn btn-outline-warning btn-fw">Edit</button>
-                                </a>
-                                <a href="~/Admin/AdminKhachHangs/Delete/@item.IDKH">
-                                    <button style="min-width:50px" type="button" class="btn btn-outline-danger btn-fw">Delete</button>
-                                </a>
-                            </td>
-                        </tr>
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TenKH)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SDT)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DiaChi)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Email)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NgaySinh)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.UserName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Password)
+                                </td>
+
+                                <td>
+                                    <a href="~/Admin/AdminKhachHangs/Details/@item.IDKH">
+                                        <button style="min-width:50px" type="button" class="btn btn-outline-success btn-fw">Details</button>
+                                    </a>
+                                    <a href="~/Admin/AdminKhachHangs/Edit/@item.IDKH">
+                                        <button style="min-width:50px" type="button" class="btn btn-outline-warning btn-fw">Edit</button>
+                                    </a>
+                                    <a href="~/Admin/AdminKhachHangs/Delete/@item.IDKH">
+                                        <button style="min-width:50px" type="button" class="btn btn-outline-danger btn-fw">Delete</button>
+                                    </a>
+                                </td>
+                            </tr>
                         }
                     </tbody>
                 </table>

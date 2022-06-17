@@ -125,19 +125,19 @@ namespace WebBanHang.Controllers
                     return RedirectToAction("Index", "Login");
                 }
                 KhachHang khach = (KhachHang)Session["KhachHang"];
-                hoadon.IDKH = khach.IDKH;      
-                data.HoaDons.Add(hoadon);               
+                hoadon.IDKH = khach.IDKH;
+                data.HoaDons.Add(hoadon);
                 data.SaveChanges();
 
                 // Lấy tưng sản phẩm
-                GioHang gio = Session["GioHang"] as GioHang;                
+                GioHang gio = Session["GioHang"] as GioHang;
                 int tongtien = 0;
                 int _tongHang = 0;
-                foreach(var item in gio.ListHang)
+                foreach (var item in gio.ListHang)
                 {
-                    _tongHang += item._soLuongHang;                                  
+                    _tongHang += item._soLuongHang;
 
-                    if(_tongHang == 0)
+                    if (_tongHang == 0)
                     {
                         return Content("<script language='javascript' type='text/javascript'>alert ('Không có hàng hóa trong giỏ hàng!');</script>");
                     }
@@ -145,29 +145,29 @@ namespace WebBanHang.Controllers
                     ChiTietHoaDon detail = new ChiTietHoaDon();
                     detail.IDHD = hoadon.IDHD;
                     detail.IDMH = item.gioHang.IDMH;
-                    detail.SoluongMH = item._soLuongHang;                  
+                    detail.SoluongMH = item._soLuongHang;
 
-                    tongtien += (int)(item.gioHang.DonGia * item._soLuongHang); 
+                    tongtien += (int)(item.gioHang.DonGia * item._soLuongHang);
 
                     data.ChiTietHoaDons.Add(detail);
                     data.SaveChanges();
                 }
-               
-                hoadon.TongSoluong = _tongHang;               
+
+                hoadon.TongSoluong = _tongHang;
                 hoadon.TongTien = tongtien;
-                Session["HoaDon"] = hoadon;                 
+                Session["HoaDon"] = hoadon;
                 Session["GioHang"] = gio;
-               
+
                 data.SaveChanges();
                 //gio.clear();
                 return RedirectToAction("XacNhan", "XacNhanDonHang", new { id = hoadon.IDHD });
-        }
+            }
             catch
             {
                 return Content("Vui lòng kiểm tra lại thông tin!");
-    }
+            }
 
-}
+        }
 
     }
 }

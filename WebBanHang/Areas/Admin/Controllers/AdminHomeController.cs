@@ -19,23 +19,14 @@ namespace WebBanHang.Areas.Admin.Controllers
                 return RedirectToAction("Index", "AdminLogin");
             }
             Session["HoaDonCho"] = db.HoaDons.Where(c => c.TrangThai.TenTrangThai.Equals("Chờ duyệt đơn hàng")).Count();
-
             ViewBag.SoHoaDonDangCho = db.HoaDons.Where(c => c.TrangThai.TenTrangThai.Equals("Chờ duyệt đơn hàng")).Count();
-
-            ViewBag.TongSoHoaDon = db.HoaDons.Count();
-            
+            ViewBag.TongSoHoaDon = db.HoaDons.Count();            
             ViewBag.TongSoMatHang = db.MatHangs.Count();
-
             ViewBag.TongSoTheLoai = db.LoaiMatHangs.Count();
-
             ViewBag.TongSoKhachHang = db.KhachHangs.Count();
-
             // thongke
             List<KhachHang> khachHangList = db.KhachHangs.ToList();
-
             List<ThongKeTheoKhachHang> listThongKe = new List<ThongKeTheoKhachHang>();
-
-
             foreach (var item in khachHangList)
             {
                 if (db.HoaDons.FirstOrDefault(c => c.IDKH == item.IDKH) == null) continue;
@@ -46,15 +37,10 @@ namespace WebBanHang.Areas.Admin.Controllers
                 tk.DoanhThuChoKhachHang = int.Parse(db.HoaDons.Where(c => c.IDKH == item.IDKH).Sum(c => c.TongTien).ToString());
                 listThongKe.Add(tk);
             }
-
             ViewBag.TktheoKhachHang = listThongKe;
-
             // thong ke theo san pham
             List<MatHang> matHangs = db.MatHangs.ToList();
-
             List<ThongKeTheoSanPham> listThongKe1 = new List<ThongKeTheoSanPham>();
-
-
             foreach (var item in matHangs)
             {
                 if (db.ChiTietHoaDons.FirstOrDefault(c => c.IDMH == item.IDMH) == null) continue;
@@ -66,12 +52,8 @@ namespace WebBanHang.Areas.Admin.Controllers
                 sp.DoanhThuChoHangHoa = sp.SoTienHangHoaThuVe;
                 listThongKe1.Add(sp);
             }
-
             ViewBag.TkTheoSanPham = listThongKe1;
-
             return View();
-
-
         }
     }
 }

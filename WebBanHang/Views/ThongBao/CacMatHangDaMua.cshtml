@@ -26,7 +26,6 @@
                             </tr>
                         </thead>
                         <tbody>
-
                             @foreach (var item in chitietdonhang)
                             {
                                 <tr>
@@ -36,13 +35,7 @@
                                     <td class="cart__price money">@Html.DisplayFor(Model => item.MatHang.DonGia)  </td>
                                     <td class="cart__product__item__title">@Html.DisplayFor(Model => item.HoaDon.TrangThai.TenTrangThai)  </td>
                                     <td class="cart__product__item__title">@Html.DisplayFor(Model => item.SoluongMH)  </td>
-                                    <td class="cart__product__item__title">@Html.DisplayFor(Model => item.HoaDon.NgayMua)  </td>
-                                    @*<td class="cart__product__item">
-                                            <div class="cart__product__item__title">
-                                                <h6>@Html.DisplayFor(Model => item.gioHang.TenMH)</h6>
-                                            </div>
-                                        </td>*@
-
+                                    <td class="cart__product__item__title">@Html.DisplayFor(Model => item.HoaDon.NgayMua)  </td>        
                                 </tr>
                             }
                         </tbody>

@@ -14,32 +14,15 @@ namespace WebBanHang.Controllers
         WebBanHangEntities data = new WebBanHangEntities();
         // GET: Shop
 
-        public ActionResult Index(string idLoaiMH ,string TenTheLoai, string TenMatHang, int page=1 , int pagelist = 6)
+        public ActionResult Index(string TenMatHang, int page=1 , int pagelist = 6)
         {
-            ViewBag.Category = data.LoaiMatHangs.ToList();
-           
-
-            if (TenTheLoai != null)
-            {                            
-                ViewBag.MatHangTheoTheLoai = data.MatHangs.Where(c => c.LoaiMatHang.TenLoaiMH.ToLower().Contains(TenTheLoai.ToLower()));              
-            }
-            else
-            if (idLoaiMH != null)
-            {
-                int a = int.Parse(idLoaiMH.ToString());
-                /*ViewBag.MatHangTheoTheLoai = data.MatHangs.Where(c => c.IDLoaiMH == a).ToList();*/
-                return View(data.MatHangs.Where(c => c.IDLoaiMH == a).ToList().OrderByDescending(c => c.IDMH).ToPagedList(page, pagelist));
-            }
-            else          
+            ViewBag.Category = data.LoaiMatHangs.ToList();                     
             if(TenMatHang != null)
             {
-                /*ViewBag.MatHangTheoTheLoai = data.MatHangs.Where(c => c.TenMH == TenMatHang).ToList();*/
                 return View(data.MatHangs.Where(c => c.TenMH.ToLower().Contains(TenMatHang.ToLower())).OrderByDescending(c => c.IDMH).ToPagedList(page, pagelist));
             }
             else
             {                
-          /*      ViewBag.MatHangTheoTheLoai = data.MatHangs.ToList();*/
-                /*ViewBag.MatHangTheoTheLoai = data.MatHangs.OrderByDescending(x => x.IDLoaiMH).ToPagedList(1, 2);*/
                 return View(data.MatHangs.OrderByDescending(x => x.IDLoaiMH).ToPagedList(page, pagelist));
             }
             return View(data.MatHangs.OrderByDescending(x => x.IDLoaiMH).ToPagedList(page, pagelist));

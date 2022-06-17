@@ -5,8 +5,7 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-    @*List<MatHang> hangtheotheloai = ViewBag.MatHangTheoTheLoai;*@
+    Layout = "~/Views/Shared/_Layout.cshtml";    
 }
 
 
@@ -23,7 +22,7 @@
                 <div class="shop__sidebar">
                     <div class="sidebar__categories">                        
                         <ul style="list-style:none">
-                            <h3>Thể loại</h3>
+                            <h3 style="color:red">Danh mục</h3>
                             <li style="padding-top:20px">
                                 <a style="color:black" href="~/Shop/index">Tất cả mặt hàng</a>
                             </li>
@@ -58,7 +57,6 @@
                             </div>
                         </div>
                     }
-
                     
                     @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }),
                         new PagedListRenderOptions

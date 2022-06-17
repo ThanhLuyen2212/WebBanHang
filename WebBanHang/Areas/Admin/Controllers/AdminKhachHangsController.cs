@@ -15,13 +15,28 @@ namespace WebBanHang.Areas.Admin.Controllers
         private WebBanHangEntities db = new WebBanHangEntities();
 
         // GET: Admin/AdminKhachHangs
-        public ActionResult Index()
+        public ActionResult Index(string tenKH)
         {
             if (Session["Admin"] == null)
             {
                 return RedirectToAction("Index", "AdminLogin");
             }
-            return View(db.KhachHangs.ToList());
+            else
+            {
+               
+                if (tenKH == null)
+                {
+                    return View(db.KhachHangs.ToList());
+                }
+                else if (tenKH.Equals(""))
+                {
+                    return View(db.KhachHangs.ToList());
+                }
+                else
+                {
+                    return View(db.KhachHangs.Where(s => s.TenKH .ToLower().Contains(tenKH.ToLower())).ToList());
+                }
+            }            
         }
 
         // GET: Admin/AdminKhachHangs/Details/5

@@ -38,8 +38,6 @@ namespace WebBanHang.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietHoaDon> ChiTietHoaDons { get; set; }
         public virtual LoaiMatHang LoaiMatHang { get; set; }
-
-
         [NotMapped]
         public HttpPostedFileBase UploadImage1 { get; set; }
         [NotMapped]
