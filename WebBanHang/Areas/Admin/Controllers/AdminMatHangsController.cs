@@ -35,7 +35,7 @@ namespace WebBanHang.Areas.Admin.Controllers
                 }
                 else
                 {
-                    return View (db.MatHangs.Where(s => s.TenMH.Equals(TenMH)).ToList());
+                    return View (db.MatHangs.Where(s => s.TenMH.ToLower().Contains(TenMH.ToLower())).ToList());
                 }
             }
         }
@@ -69,41 +69,28 @@ namespace WebBanHang.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create( MatHang matHang)
         {
-            if (ModelState.IsValid)
+            if (matHang.UploadImage1 != null)
             {
-
-                if (matHang.UploadImage1 != null)
-                {   
-                    string filename = Path.GetFileNameWithoutExtension(matHang.UploadImage1.FileName);
-                    string ex = Path.GetExtension(matHang.UploadImage1.FileName);
-                    filename = filename + ex;
-                    matHang.HinhAnh1 = "~/Images/" + filename;                   
-                    matHang.UploadImage1.SaveAs(Path.Combine(Server.MapPath("~/Images/"), filename));
-                }
-                if (matHang.UploadImage2 != null)
-                {
-                    string filename = Path.GetFileNameWithoutExtension(matHang.UploadImage2.FileName);
-                    string ex = Path.GetExtension(matHang.UploadImage2.FileName);
-                    filename = filename + ex;
-                    matHang.HinhAnh2 = "~/Images/" + filename;
-                    matHang.UploadImage2.SaveAs(Path.Combine(Server.MapPath("~/Images/"), filename));
-                }
-                if (matHang.UploadImage3 != null)
-                {
-                    string filename = Path.GetFileNameWithoutExtension(matHang.UploadImage3.FileName);
-                    string ex = Path.GetExtension(matHang.UploadImage3.FileName);
-                    filename = filename + ex;
-                    matHang.HinhAnh3 = "~/Images/" + filename;
-                    matHang.UploadImage3.SaveAs(Path.Combine(Server.MapPath("~/Images/"), filename));
-                }
-                if (matHang.UploadImage4 != null)
-                {
-                    string filename = Path.GetFileNameWithoutExtension(matHang.UploadImage4.FileName);
-                    string ex = Path.GetExtension(matHang.UploadImage4.FileName);
-                    filename = filename + ex;
-                    matHang.HinhAnh4 = "~/Images/" + filename;
-                    matHang.UploadImage4.SaveAs(Path.Combine(Server.MapPath("~/Images/"), filename));
-                }
+                using (var binaryReader = new BinaryReader(matHang.UploadImage1.InputStream))
+                    matHang.HinhAnh1 = binaryReader.ReadBytes(matHang.UploadImage1.ContentLength);
+            }
+            if (matHang.UploadImage2 != null)
+            {
+                using (var binaryReader = new BinaryReader(matHang.UploadImage2.InputStream))
+                    matHang.HinhAnh2 = binaryReader.ReadBytes(matHang.UploadImage2.ContentLength);
+            }
+            if (matHang.UploadImage3 != null)
+            {
+                using (var binaryReader = new BinaryReader(matHang.UploadImage3.InputStream))
+                    matHang.HinhAnh3 = binaryReader.ReadBytes(matHang.UploadImage3.ContentLength);
+            }
+            if (matHang.UploadImage4 != null)
+            {
+                using (var binaryReader = new BinaryReader(matHang.UploadImage4.InputStream))
+                    matHang.HinhAnh4 = binaryReader.ReadBytes(matHang.UploadImage4.ContentLength);
+            }
+            if (ModelState.IsValid)
+            {                
                 db.MatHangs.Add(matHang);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -121,6 +108,7 @@ namespace WebBanHang.Areas.Admin.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             MatHang matHang = db.MatHangs.Find(id);
+            
             if (matHang == null)
             {
                 return HttpNotFound();
@@ -135,9 +123,29 @@ namespace WebBanHang.Areas.Admin.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(MatHang matHang)
-        {
+        {   
             if (ModelState.IsValid)
             {
+                if (matHang.UploadImage1 != null)
+                {
+                    using (var binaryReader = new BinaryReader(matHang.UploadImage1.InputStream))
+                        matHang.HinhAnh1 = binaryReader.ReadBytes(matHang.UploadImage1.ContentLength);
+                }                
+                if (matHang.UploadImage2 != null)
+                {
+                    using (var binaryReader = new BinaryReader(matHang.UploadImage2.InputStream))
+                        matHang.HinhAnh2 = binaryReader.ReadBytes(matHang.UploadImage2.ContentLength);
+                }              
+                if (matHang.UploadImage3 != null)
+                {
+                    using (var binaryReader = new BinaryReader(matHang.UploadImage3.InputStream))
+                        matHang.HinhAnh3 = binaryReader.ReadBytes(matHang.UploadImage3.ContentLength);
+                }              
+                if (matHang.UploadImage4 != null)
+                {
+                    using (var binaryReader = new BinaryReader(matHang.UploadImage4.InputStream))
+                        matHang.HinhAnh4 = binaryReader.ReadBytes(matHang.UploadImage4.ContentLength);
+                }                
                 db.Entry(matHang).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

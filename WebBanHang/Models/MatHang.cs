@@ -11,6 +11,7 @@ namespace WebBanHang.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Web;
 
@@ -19,31 +20,42 @@ namespace WebBanHang.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public MatHang()
         {
-            this.ChiTietHoaDons = new HashSet<ChiTietHoaDon>();                
+            this.ChiTietHoaDons = new HashSet<ChiTietHoaDon>();
         }
     
         public int IDMH { get; set; }
+        [Required]
         public string TenMH { get; set; }
         public Nullable<int> IDLoaiMH { get; set; }
         public string MoTa { get; set; }
+        [Required]
         public Nullable<int> DonGia { get; set; }
         public Nullable<System.DateTime> NgayNhapHang { get; set; }
-        public string HinhAnh1 { get; set; }
-        public string HinhAnh2 { get; set; }
-        public string HinhAnh3 { get; set; }
-        public string HinhAnh4 { get; set; }
-        public string MoTaChiTiet { get; set; }
+        [Required]
         public Nullable<int> SoLuong { get; set; }
+        
+        public byte[] HinhAnh1 { get; set; }
+        
+        public byte[] HinhAnh2 { get; set; }
+        
+        public byte[] HinhAnh3 { get; set; }
+        
+        public byte[] HinhAnh4 { get; set; }        
+        public string MoTaChiTiet { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietHoaDon> ChiTietHoaDons { get; set; }
         public virtual LoaiMatHang LoaiMatHang { get; set; }
+
         [NotMapped]
         public HttpPostedFileBase UploadImage1 { get; set; }
+
         [NotMapped]
         public HttpPostedFileBase UploadImage2 { get; set; }
+
         [NotMapped]
         public HttpPostedFileBase UploadImage3 { get; set; }
+
         [NotMapped]
         public HttpPostedFileBase UploadImage4 { get; set; }
 

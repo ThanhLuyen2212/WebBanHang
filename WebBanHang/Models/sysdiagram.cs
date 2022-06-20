@@ -11,17 +11,13 @@ namespace WebBanHang.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
-    public partial class ChiTietHoaDon
-    {
-        public int IDChiTietHD { get; set; }
-        public Nullable<int> IDHD { get; set; }
-        public Nullable<int> IDMH { get; set; }
-        [Range(1,1000)]
-        public Nullable<int> SoluongMH { get; set; }
     
-        public virtual HoaDon HoaDon { get; set; }
-        public virtual MatHang MatHang { get; set; }
+    public partial class sysdiagram
+    {
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

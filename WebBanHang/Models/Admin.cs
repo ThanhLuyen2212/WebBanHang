@@ -11,15 +11,22 @@ namespace WebBanHang.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Admin
     {
         public int IDAdmin { get; set; }
+        [Required]
         public string TenAdmin { get; set; }
+        [Phone]
+        [Required]
         public string SDT { get; set; }
         public string DiaChi { get; set; }
         public Nullable<System.DateTime> NgaySinh { get; set; }
+        [Required]
         public string UserName { get; set; }
+        [MinLength(8),MaxLength(16)]
+        [Required]
         public string Password { get; set; }
     }
 }

@@ -135,10 +135,18 @@ namespace WebBanHang.Controllers
                 int _tongHang = 0;
                 foreach (var item in gio.ListHang)
                 {
+                    if(item._soLuongHang <= 0)
+                    {
+                        data.HoaDons.Remove(hoadon);
+                        data.SaveChanges();
+                        return Content("<script language='javascript' type='text/javascript'>alert ('Vui lòng kiểm tra lại thông tin!');</script>");
+                    }
                     _tongHang += item._soLuongHang;
 
                     if (_tongHang == 0)
                     {
+                        data.HoaDons.Remove(hoadon);
+                        data.SaveChanges();
                         return Content("<script language='javascript' type='text/javascript'>alert ('Không có hàng hóa trong giỏ hàng!');</script>");
                     }
 
@@ -166,8 +174,6 @@ namespace WebBanHang.Controllers
             {
                 return Content("Vui lòng kiểm tra lại thông tin!");
             }
-
         }
-
     }
 }

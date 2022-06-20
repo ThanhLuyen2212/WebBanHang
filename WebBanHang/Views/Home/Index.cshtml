@@ -49,7 +49,12 @@
                     <div class="col-lg-3 col-md-4 col-sm-6">
                         <div class="product__item">                            
                             <div>
-                                <img src="@Url.Content(item.HinhAnh1)" width="262px" height="360px" alt="Alternate Text" />
+                                @{
+                                    var base64 = Convert.ToBase64String(item.HinhAnh1);
+                                    var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                                }
+                                <img src='@imgSrc' width="262px" height="360px" alt="Alternate Text" />
+                                @*<img src="@Url.Content(item.HinhAnh1)" width="262px" height="360px" alt="Alternate Text" />*@
                             </div>
                             <div class="product__item__text">
                                 <h6><a href="#">@item.TenMH</a></h6>
@@ -74,7 +79,7 @@
                         <p>
                             Hãy cùng nhau mua những chiếc laptop nào!!!
                         </p>
-                        <a href="~/shop/Index?TenTheLoai=Laptop">Shop now</a>
+                        <a href="~/shop/Index?TenTheLoai=LapTop">Shop now</a>
                     </div>
                 </div>
             </div>
@@ -84,7 +89,7 @@
                         <div class="categories__item set-bg" style="background-color:  #c9e1d8">
                             <div class="categories__text">
                                 <h4>Bàn phím</h4>
-                                <p>358 items</p>
+                                <p>Nâng cao tốt đa trả nghiệm bàn phím</p>
                                 <a href="~/shop/Index?TenTheLoai=Bàn Phím">Shop now</a>
                             </div>
 
@@ -94,7 +99,7 @@
                         <div class="categories__item set-bg"style="background-color: #d5d4ec" >
                             <div class="categories__text">
                                 <h4>Chuột</h4>
-                                <p>273 items</p>
+                                <p>Đưa bạn tới cảm giác tuyệt với</p>
                                 <a href="~/shop/Index?TenTheLoai=Chuột">Shop now</a>
                             </div>
                         </div>
@@ -103,7 +108,7 @@
                         <div class="categories__item set-bg" style="background-color: #f3dde1 ">
                             <div class="categories__text">
                                 <h4>Màn hình</h4>
-                                <p>159 items</p>
+                                <p>Hãy cùng xem phim nào </p>
                                 <a href="~/shop/Index?TenTheLoai=Màn hình">Shop now</a>
                             </div>
                         </div>
@@ -113,7 +118,7 @@
 
                             <div class="categories__text">
                                 <h4>PC</h4>
-                                <p>792 items</p>
+                                <p>Hãy đem lại cảm giác cho mình</p>
                                 <a href="~/shop/Index?TenTheLoai=PC">Shop now</a>
                             </div>
                         </div>
@@ -144,7 +149,12 @@
                     <div class="col-lg-3 col-md-4 col-sm-6">
                         <div class="product__item">
                             <div>
-                                <img src="@Url.Content(item.HinhAnh1)" width="262px" height="360px" alt="Alternate Text" />
+                                @{
+                                    var base64 = Convert.ToBase64String(item.HinhAnh1);
+                                    var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                                }
+                                <img src='@imgSrc'  width="262px" height="360px" alt="Alternate Text"/>
+                                @*<img src="@Url.Content(item.HinhAnh1)" width="262px" height="360px" alt="Alternate Text" />*@
                             </div>
                             <div class="product__item__text">
                                 <h6><a href="#">@item.TenMH</a></h6>

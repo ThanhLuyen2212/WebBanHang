@@ -72,6 +72,7 @@ namespace WebBanHang.Areas.Admin.Controllers
         }
 
         // GET: Admin/AdminHoaDons/Edit/5
+        
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -87,6 +88,7 @@ namespace WebBanHang.Areas.Admin.Controllers
             ViewBag.IDKH = new SelectList(db.KhachHangs, "IDKH", "TenKH", hoaDon.IDKH);
             ViewBag.IDPT = new SelectList(db.PhuongThucThanhToans, "IDPT", "TenPT", hoaDon.IDPT);
             ViewBag.IDTrangThai = new SelectList(db.TrangThais, "IDTrangThai", "TenTrangThai", hoaDon.IDTrangThai);
+            Session["TrangThai"] = hoaDon.IDTrangThai;
             return View(hoaDon);
         }
 
@@ -100,6 +102,30 @@ namespace WebBanHang.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 db.Entry(hoaDon).State = EntityState.Modified;
+                db.SaveChanges();
+                if ((int)Session["TrangThai"] == 1 && hoaDon.IDTrangThai != 1)
+                {
+                    List<ChiTietHoaDon> cthd = db.ChiTietHoaDons.Where(c => c.IDHD == hoaDon.IDHD).ToList();
+                    foreach(ChiTietHoaDon item in cthd)
+                    {
+                        MatHang mh = db.MatHangs.FirstOrDefault(c => c.IDMH == item.IDMH);
+                        mh.SoLuong = mh.SoLuong - item.SoluongMH;
+                        
+                    }
+                }
+                else
+                {
+                    if((int)Session["TrangThai"] != 1 && hoaDon.IDTrangThai == 1)
+                    {
+                        List<ChiTietHoaDon> cthd = db.ChiTietHoaDons.Where(c => c.IDHD == hoaDon.IDHD).ToList();
+                        foreach (ChiTietHoaDon item in cthd)
+                        {
+                            MatHang mh = db.MatHangs.FirstOrDefault(c => c.IDMH == item.IDMH);
+                            mh.SoLuong = mh.SoLuong + item.SoluongMH;
+                           
+                        }
+                    }
+                }
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

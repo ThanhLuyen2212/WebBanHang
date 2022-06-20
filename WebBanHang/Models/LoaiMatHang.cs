@@ -11,15 +11,18 @@ namespace WebBanHang.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class LoaiMatHang
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public LoaiMatHang()
         {
             this.MatHangs = new HashSet<MatHang>();
-        }    
+        }
+    
         public int IDLoaiMH { get; set; }
+        [Required]
         public string TenLoaiMH { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="WebBanHangModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="WebBanHangModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Admin">
           <Key>
             <PropertyRef Name="IDAdmin" />
@@ -69,10 +69,10 @@
           <Property Name="DonGia" Type="int" />
           <Property Name="NgayNhapHang" Type="datetime" />
           <Property Name="SoLuong" Type="int" />
-          <Property Name="HinhAnh1" Type="nvarchar(max)" />
-          <Property Name="HinhAnh2" Type="nvarchar(max)" />
-          <Property Name="HinhAnh3" Type="nvarchar(max)" />
-          <Property Name="HinhAnh4" Type="nvarchar(max)" />
+          <Property Name="HinhAnh1" Type="varbinary(max)" />
+          <Property Name="HinhAnh2" Type="varbinary(max)" />
+          <Property Name="HinhAnh3" Type="varbinary(max)" />
+          <Property Name="HinhAnh4" Type="varbinary(max)" />
           <Property Name="MoTaChiTiet" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="PhuongThucThanhToan">
@@ -81,6 +81,16 @@
           </Key>
           <Property Name="IDPT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TenPT" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="TrangThai">
           <Key>
@@ -152,7 +162,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_MATHANG_LOAIMATHANG">
-          <End Role="LoaiMatHang" Type="Self.LoaiMatHang" Multiplicity="0..1" />
+          <End Role="LoaiMatHang" Type="Self.LoaiMatHang" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="MatHang" Type="Self.MatHang" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LoaiMatHang">
@@ -171,6 +183,7 @@
           <EntitySet Name="LoaiMatHang" EntityType="Self.LoaiMatHang" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MatHang" EntityType="Self.MatHang" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PhuongThucThanhToan" EntityType="Self.PhuongThucThanhToan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TrangThai" EntityType="Self.TrangThai" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_CHITIETHOADON_HOADON" Association="Self.FK_CHITIETHOADON_HOADON">
             <End Role="HoaDon" EntitySet="HoaDon" />
@@ -197,7 +210,8 @@
             <End Role="MatHang" EntitySet="MatHang" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="WebBanHangModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -248,11 +262,11 @@
           <Property Name="TenKH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="SDT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="NgaySinh" Type="DateTime" Precision="3" />
           <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="HoaDons" Relationship="Self.FK_HOADON_KHACHHANG" FromRole="KhachHang" ToRole="HoaDon" />
-          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="LoaiMatHang">
           <Key>
@@ -272,14 +286,14 @@
           <Property Name="MoTa" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="DonGia" Type="Int32" />
           <Property Name="NgayNhapHang" Type="DateTime" Precision="3" />
-          <Property Name="HinhAnh1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="HinhAnh2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="HinhAnh3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="HinhAnh4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SoLuong" Type="Int32" />
+          <Property Name="HinhAnh1" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="HinhAnh2" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="HinhAnh3" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="HinhAnh4" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="MoTaChiTiet" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="ChiTietHoaDons" Relationship="Self.FK_CHITIETHOADON_MATHANG" FromRole="MatHang" ToRole="ChiTietHoaDon" />
           <NavigationProperty Name="LoaiMatHang" Relationship="Self.FK_MATHANG_LOAIMATHANG" FromRole="MatHang" ToRole="LoaiMatHang" />
-          <Property Name="SoLuong" Type="Int32" />
         </EntityType>
         <EntityType Name="PhuongThucThanhToan">
           <Key>
@@ -288,6 +302,16 @@
           <Property Name="IDPT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TenPT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="HoaDons" Relationship="Self.FK_HOADON_PHUONGTHUC" FromRole="PhuongThucThanhToan" ToRole="HoaDon" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="TrangThai">
           <Key>
@@ -360,7 +384,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_MATHANG_LOAIMATHANG">
-          <End Role="LoaiMatHang" Type="Self.LoaiMatHang" Multiplicity="0..1" />
+          <End Role="LoaiMatHang" Type="Self.LoaiMatHang" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="MatHang" Type="Self.MatHang" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LoaiMatHang">
@@ -379,6 +405,7 @@
           <EntitySet Name="LoaiMatHangs" EntityType="Self.LoaiMatHang" />
           <EntitySet Name="MatHangs" EntityType="Self.MatHang" />
           <EntitySet Name="PhuongThucThanhToans" EntityType="Self.PhuongThucThanhToan" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="TrangThais" EntityType="Self.TrangThai" />
           <AssociationSet Name="FK_CHITIETHOADON_HOADON" Association="Self.FK_CHITIETHOADON_HOADON">
             <End Role="HoaDon" EntitySet="HoaDons" />
@@ -450,11 +477,11 @@
           <EntitySetMapping Name="KhachHangs">
             <EntityTypeMapping TypeName="WebBanHangModel.KhachHang">
               <MappingFragment StoreEntitySet="KhachHang">
-                <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="IDKH" ColumnName="IDKH" />
                 <ScalarProperty Name="TenKH" ColumnName="TenKH" />
                 <ScalarProperty Name="SDT" ColumnName="SDT" />
                 <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
@@ -472,13 +499,13 @@
           <EntitySetMapping Name="MatHangs">
             <EntityTypeMapping TypeName="WebBanHangModel.MatHang">
               <MappingFragment StoreEntitySet="MatHang">
-                <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
                 <ScalarProperty Name="IDMH" ColumnName="IDMH" />
                 <ScalarProperty Name="TenMH" ColumnName="TenMH" />
                 <ScalarProperty Name="IDLoaiMH" ColumnName="IDLoaiMH" />
                 <ScalarProperty Name="MoTa" ColumnName="MoTa" />
                 <ScalarProperty Name="DonGia" ColumnName="DonGia" />
                 <ScalarProperty Name="NgayNhapHang" ColumnName="NgayNhapHang" />
+                <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
                 <ScalarProperty Name="HinhAnh1" ColumnName="HinhAnh1" />
                 <ScalarProperty Name="HinhAnh2" ColumnName="HinhAnh2" />
                 <ScalarProperty Name="HinhAnh3" ColumnName="HinhAnh3" />
@@ -492,6 +519,17 @@
               <MappingFragment StoreEntitySet="PhuongThucThanhToan">
                 <ScalarProperty Name="IDPT" ColumnName="IDPT" />
                 <ScalarProperty Name="TenPT" ColumnName="TenPT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="WebBanHangModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

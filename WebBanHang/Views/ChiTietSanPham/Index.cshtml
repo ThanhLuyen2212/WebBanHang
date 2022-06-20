@@ -14,24 +14,43 @@
                 <div class="product__details__pic">
                     <div class="product__details__pic__left product__thumb nice-scroll">
                         <a class="pt active" href="#product-1">                           
-                            <img src="@Url.Content(Model.HinhAnh1)" />
+
+                            @{
+                                var base641 = Convert.ToBase64String(Model.HinhAnh1);
+                                var imgSrc1 = String.Format("data:image/gif;base64,{0}", base641);
+                            }
+                            <img src='@imgSrc1'  />
                         </a>
                         <a class="pt" href="#product-2">
-                            <img src="@Url.Content(Model.HinhAnh2)" />
+                            @{
+                                var base642 = Convert.ToBase64String(Model.HinhAnh2);
+                                var imgSrc2 = String.Format("data:image/gif;base64,{0}", base642);
+                            }
+                            <img src='@imgSrc2' />
+                            
                         </a>
-                        <a class="pt" href="#product-3">
-                            <img src="@Url.Content(Model.HinhAnh3)" />
+                        <a class="pt" href="#product-3">                           
+                            @{
+                                var base643 = Convert.ToBase64String(Model.HinhAnh3);
+                                var imgSrc3 = String.Format("data:image/gif;base64,{0}", base643);
+                            }
+                            <img src='@imgSrc3' />
                         </a>
                         <a class="pt" href="#product-4">
-                            <img src="@Url.Content(Model.HinhAnh4)" />
+                            @{
+                                var base644 = Convert.ToBase64String(Model.HinhAnh4);
+                                var imgSrc4 = String.Format("data:image/gif;base64,{0}", base644);
+                            }
+                            <img src='@imgSrc4' />
+                            @*<img src="@Url.Content(Model.HinhAnh4)" />*@
                         </a>
                     </div>
                     <div class="product__details__slider__content">
                         <div class="product__details__pic__slider owl-carousel">
-                            <img data-hash="product-1" class="product__big__img" src="@Url.Content(Model.HinhAnh1)" alt="">
-                            <img data-hash="product-2" class="product__big__img" src="@Url.Content(Model.HinhAnh2)" alt="">
-                            <img data-hash="product-3" class="product__big__img" src="@Url.Content(Model.HinhAnh3)" alt="">
-                            <img data-hash="product-4" class="product__big__img" src="@Url.Content(Model.HinhAnh4)" alt="">
+                            <img data-hash="product-1" class="product__big__img" src="@imgSrc1" alt="">
+                            <img data-hash="product-2" class="product__big__img" src="@imgSrc2" alt="">
+                            <img data-hash="product-3" class="product__big__img" src="@imgSrc3" alt="">
+                            <img data-hash="product-4" class="product__big__img" src="@imgSrc4" alt="">
                         </div>
                     </div>
                 </div>

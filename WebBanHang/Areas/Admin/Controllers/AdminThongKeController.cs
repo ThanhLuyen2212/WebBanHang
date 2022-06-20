@@ -27,9 +27,7 @@ namespace WebBanHang.Areas.Admin.Controllers
             }
 
             List<KhachHang> khachHangList = data.KhachHangs.ToList();
-
-            List<ThongKeTheoKhachHang> listThongKe = new List<ThongKeTheoKhachHang>();
-           
+            List<ThongKeTheoKhachHang> listThongKe = new List<ThongKeTheoKhachHang>();           
             
             foreach (var item in khachHangList)
             {
@@ -54,11 +52,9 @@ namespace WebBanHang.Areas.Admin.Controllers
                 return RedirectToAction("Index", "AdminLogin");
             }
 
+
             List<MatHang> matHangs = data.MatHangs.ToList();
-
             List<ThongKeTheoSanPham> listThongKe = new List<ThongKeTheoSanPham>();
-
-
             foreach (var item in matHangs)
             {
                 if (data.ChiTietHoaDons.FirstOrDefault(c => c.IDMH == item.IDMH) == null) continue;

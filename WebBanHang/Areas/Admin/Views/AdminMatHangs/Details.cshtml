@@ -59,25 +59,41 @@
                 <div class="form-group row">
                     <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Hình ảnh1</label>
                     <div class="col-sm-9">
-                        <img src="@Url.Content(Model.HinhAnh1)" style="width: 100px; height: 150px; border-radius:0%" />
+                        @{
+                            var base641 = Convert.ToBase64String(Model.HinhAnh1);
+                            var imgSrc1 = String.Format("data:image/gif;base64,{0}", base641);
+                        }
+                        <img src='@imgSrc1' style="width: 100px; height: 150px; border-radius:0%" />
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Hình ảnh2</label>
                     <div class="col-sm-9">
-                        <img src="@Url.Content(Model.HinhAnh2)" style="width: 100px; height: 150px; border-radius:0%" />
+                        @{
+                            var base642 = Convert.ToBase64String(Model.HinhAnh2);
+                            var imgSrc2 = String.Format("data:image/gif;base64,{0}", base642);
+                        }
+                        <img src='@imgSrc2' style="width: 100px; height: 150px; border-radius:0%" />
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Hình ảnh3</label>
                     <div class="col-sm-9">
-                        <img src="@Url.Content(Model.HinhAnh3)" style="width: 100px; height: 150px; border-radius:0%" />
+                        @{
+                            var base643 = Convert.ToBase64String(Model.HinhAnh3);
+                            var imgSrc3 = String.Format("data:image/gif;base64,{0}", base643);
+                        }
+                        <img src='@imgSrc3' style="width: 100px; height: 150px; border-radius:0%" />
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Hình ảnh4</label>
                     <div class="col-sm-9">
-                        <img src="@Url.Content(Model.HinhAnh4)" style="width: 100px; height: 150px; border-radius:0%" />
+                        @{
+                            var base644 = Convert.ToBase64String(Model.HinhAnh4);
+                            var imgSrc4 = String.Format("data:image/gif;base64,{0}", base644);
+                        }
+                        <img src='@imgSrc4' style="width: 100px; height: 150px; border-radius:0%" />
                     </div>
                 </div> 
                 <a href="~/Admin/AdminMatHangs/Edit/@Model.IDMH">
