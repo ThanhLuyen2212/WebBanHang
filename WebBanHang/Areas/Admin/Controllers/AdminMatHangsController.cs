@@ -22,6 +22,7 @@ namespace WebBanHang.Areas.Admin.Controllers
             if (Session["UserName"] == null)
             {
                 return RedirectToAction("Index", "AdminLogin", new { Areas = "Admin" });
+
             }
             else
             {
@@ -35,6 +36,11 @@ namespace WebBanHang.Areas.Admin.Controllers
                 }
                 else
                 {
+                    List<MatHang> mb = db.MatHangs.Where(c => c.LoaiMatHang.TenLoaiMH.ToLower().Contains(TenMH.ToLower())).ToList();
+                    if(mb.Count > 0)
+                    {
+                        return View(mb);
+                    }
                     return View (db.MatHangs.Where(s => s.TenMH.ToLower().Contains(TenMH.ToLower())).ToList());
                 }
             }
